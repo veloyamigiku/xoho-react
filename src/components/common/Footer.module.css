@@ -20,14 +20,15 @@
 
 .FooterLink {
     display: flex;
-    flex-wrap: wrap;
-    align-items: center;
+    flex-direction: column;
     justify-content: center;
     height: 70px;
 }
 
 .FooterLinkGroup {
     display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
 .FooterLinkItem:nth-of-type(n + 2) {
@@ -51,7 +52,8 @@
 }
 
 .FooterSNSLink {
-    margin-left: 150px;
+    text-align: center;
+    margin-top: 15px;
 }
 
 .FooterSNSLink a:hover {
