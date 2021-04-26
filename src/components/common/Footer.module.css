@@ -1,0 +1,77 @@
+.FooterTop {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 40px;
+    background-color: #373737;
+    text-align: center;
+}
+
+.FooterTop a {
+    color: #fff;
+    font-size: 12px;
+    font-weight: 700;
+    text-decoration: none;
+}
+
+.FooterTop a:hover {
+    opacity: .6;
+}
+
+.FooterLink {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+    height: 70px;
+}
+
+.FooterLinkGroup {
+    display: flex;
+}
+
+.FooterLinkItem:nth-of-type(n + 2) {
+    margin-left: 15px;
+}
+
+.FooterLinkA {
+    color: #fff;
+    font-size: 12px;
+    font-weight: 700;
+    text-decoration: none;
+}
+
+.FooterLinkA:hover {
+    opacity: .6;
+}
+
+.FooterLinkItem:nth-of-type(n + 2) .FooterLinkA {
+    padding-left: 15px;
+    border-left: 1px solid #616161;
+}
+
+.FooterSNSLink {
+    margin-left: 150px;
+}
+
+.FooterSNSLink a:hover {
+    opacity: .6;
+}
+
+.FooterSNSLink a:nth-of-type(n + 2) {
+    margin-left: 15px;
+}
+
+.FooterSNSIcon {
+    color: white;
+    font-size: 20px;
+}
+
+.FooterCopyright {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 40px;
+    color: #a1a1a1;
+    font-size: 80%;
+}

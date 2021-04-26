@@ -13,7 +13,7 @@ html, body, #wrapper {
   display: table;
   width: 100%;
   /* screen-height(vh) - header-height(px) - footer-height(px) */
-  height: calc(100vh - 50px - 50px);
+  height: calc(100vh - 50px - 150px);
 }
 
 #menu {
@@ -30,6 +30,6 @@ html, body, #wrapper {
 
 #footer {
   width: 100%;
-  height: 50px;
+  height: 150px;
   background-color: #424242;
 }
