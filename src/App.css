@@ -16,11 +16,17 @@ html, body, #wrapper {
   height: calc(100vh - 50px - 150px);
 }
 
-#menu {
+#menu_wrapper {
   display: table-cell;
   width: 210px;
   height: 100%;
   background-color: #292929;
+}
+
+#menu {
+  /* table-cellを持つノード内のはみ出たコンテンツのスタイル(overflow)は、要素を一つ挟んで設定する。 */
+  height: 100%;
+  overflow-y: auto;
 }
 
 #contents {
