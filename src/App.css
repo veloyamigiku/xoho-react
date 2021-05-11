@@ -3,6 +3,10 @@ html, body, #wrapper {
   height: 100%;
 }
 
+body {
+  background-color: rgb(245, 245, 245);
+}
+
 #header {
   width: 100%;
   height: 50px;
@@ -29,9 +33,16 @@ html, body, #wrapper {
   overflow-y: auto;
 }
 
-#contents {
+#contents_wrapper {
   display: table-cell;
+  /* table-cellの上部のpaddingを除去する。 */
+  vertical-align: top;
   height: 100%;
+}
+
+#contents {
+  height: 100%;
+  overflow-y: auto;
 }
 
 #footer {

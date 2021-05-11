@@ -1,0 +1,33 @@
+div.TopMenuItem {
+  background-color: #fff;
+}
+
+div.TopMenuItem:nth-of-type(n+2) {
+  border-left: 1px solid;
+  border-image: linear-gradient(to bottom, #fafafa 0%,#e4e4e4 100%);
+  /* ボーダー画像の分割数を1として分割しない。 */
+  border-image-slice: 1;
+}
+
+a.TopMenuItemLink {
+  color: #424242;
+  text-decoration: none;
+}
+
+div.TopMenuItemContent {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 10px 0;
+}
+
+div.TopMenuItemTitle {
+  font-size: 15px;
+  font-weight: 700;
+}
+
+div.TopMenuItemSub {
+  margin-top: 5px;
+  font-size: 8px;
+  font-weight: 400;
+}

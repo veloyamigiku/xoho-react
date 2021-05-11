@@ -1,4 +1,6 @@
 import './App.css';
+import { BrowserRouter as Router} from 'react-router-dom';
+import Contents from './Contents';
 import Footer from './components/common/Footer';
 import Header from './components/common/Header';
 import axios from 'axios';
@@ -33,7 +35,13 @@ function App() {
             <Menu data={menuData} />
           </div>
         </div>
-        <div id="contents"></div>
+        <div id="contents_wrapper">
+          <div id="contents">
+            <Router>
+              <Contents />
+            </Router>
+          </div>
+        </div>
       </div>
       <div id="footer">
         <Footer data={footerData} />
