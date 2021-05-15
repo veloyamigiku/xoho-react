@@ -1,0 +1,16 @@
+.Heading {
+  margin-top: 40px;
+  margin-left: 20px;
+  margin-right: 20px;
+  padding-left: 6px;
+  border-left: 5px solid #b71c1c;
+}
+
+.HeadingTitle {
+  font-size: 20px;
+}
+
+.HeadingSub {
+  font-size: 16px;
+  color: #616161;
+}

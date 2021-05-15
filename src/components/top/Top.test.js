@@ -10,6 +10,8 @@ import { loginMenu } from './login_menu/LoginMenuData';
 import { topMenu } from '../common/TopMenuData';
 import { topBanner } from './top_banner/TopBannerData';
 import TopBanner from './top_banner/TopBanner';
+import Heading from '../common/Heading';
+import { topHeadingData } from './TopHeadingData';
 
 Enzyme.configure({
   adapter: new EnzymeAdapter()
@@ -56,5 +58,20 @@ describe('Topコンポーネント', () => {
     const topBannerNode = wrapper.find(TopBanner);
     expect(topBannerNode).toHaveLength(1);
     expect(topBannerNode.at(0).props().data).toEqual(topBanner);
+
+    const headingNodes = wrapper.find(Heading);
+    expect(headingNodes).toHaveLength(Object.keys(topHeadingData).length);
+
+    const rankingHeadingNode = headingNodes.at(0);
+    expect(rankingHeadingNode.props().data).toEqual(topHeadingData['R']);
+
+    const infoHeadingNode = headingNodes.at(1);
+    expect(infoHeadingNode.props().data).toEqual(topHeadingData['I']);
+
+    const importantInfoHeadingNode = headingNodes.at(2);
+    expect(importantInfoHeadingNode.props().data).toEqual(topHeadingData['II']);
+
+    const serviceHeadingNode = headingNodes.at(3);
+    expect(serviceHeadingNode.props().data).toEqual(topHeadingData['S']);
   });
 });

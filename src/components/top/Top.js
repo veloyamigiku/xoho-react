@@ -4,6 +4,8 @@ import axios from 'axios';
 import TopMenu from '../common/TopMenu';
 import LoginMenu from './login_menu/LoginMenu';
 import TopBanner from './top_banner/TopBanner';
+import Heading from '../common/Heading';
+import { topHeadingData } from './TopHeadingData';
 
 const Top = function() {
 
@@ -34,6 +36,10 @@ const Top = function() {
       <TopMenu data={topMenuData} />
       <LoginMenu data={loginMenuData} />
       <TopBanner data={topBannerData} />
+      <Heading data={topHeadingData['R']} />
+      <Heading data={topHeadingData['I']} />
+      <Heading data={topHeadingData['II']} />
+      <Heading data={topHeadingData['S']} />
     </div>
   );
 }
