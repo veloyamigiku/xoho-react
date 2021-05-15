@@ -1,0 +1,17 @@
+div.LoginMenuButton {
+  width: 210px;
+  margin-right: 20px;
+  border: solid 1px #9c9c9c;
+  border-radius: 5px;
+}
+
+a.LoginMenuButtonA {
+  font-size: 16px;
+  text-align: center;
+  text-decoration: none;
+}
+
+a.LoginMenuButtonA div {
+  padding-top: 5px;
+  padding-bottom: 5px;
+}
