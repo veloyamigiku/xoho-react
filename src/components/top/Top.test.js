@@ -8,6 +8,8 @@ import { act } from '@testing-library/react';
 import axios from 'axios';
 import { loginMenu } from './login_menu/LoginMenuData';
 import { topMenu } from '../common/TopMenuData';
+import { topBanner } from './top_banner/TopBannerData';
+import TopBanner from './top_banner/TopBanner';
 
 Enzyme.configure({
   adapter: new EnzymeAdapter()
@@ -28,6 +30,10 @@ describe('Topコンポーネント', () => {
           return {
             data: loginMenu
           };
+        case "https://wonderful-ptolemy-a2705b.netlify.app/.netlify/functions/top_banner":
+          return {
+            data: topBanner
+          }
       }
     });
   })
@@ -46,5 +52,9 @@ describe('Topコンポーネント', () => {
     const loginMenuNode = wrapper.find(LoginMenu);
     expect(loginMenuNode).toHaveLength(1);
     expect(loginMenuNode.at(0).props().data).toEqual(loginMenu);
+
+    const topBannerNode = wrapper.find(TopBanner);
+    expect(topBannerNode).toHaveLength(1);
+    expect(topBannerNode.at(0).props().data).toEqual(topBanner);
   });
 });

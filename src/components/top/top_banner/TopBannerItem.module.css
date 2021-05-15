@@ -1,0 +1,7 @@
+.TopBannerItem:nth-of-type(odd) {
+    margin-right: 20px;
+}
+
+.TopBannerItemImg {
+    width: 100%;
+}
