@@ -13,12 +13,12 @@ function App() {
 
   useEffect(() => {
     axios
-      .get('https://wonderful-ptolemy-a2705b.netlify.app/.netlify/functions/footer_link')
+      .get('https://wonderful-ptolemy-a2705b.netlify.app/.netlify/functions/footer_link?front_type=react')
       .then(res => {
         setFooterData(res.data);
       });
     axios
-      .get('https://wonderful-ptolemy-a2705b.netlify.app/.netlify/functions/menu')
+      .get('https://wonderful-ptolemy-a2705b.netlify.app/.netlify/functions/menu?front_type=react')
       .then(res => {
         setMenuData(res.data);
       })
