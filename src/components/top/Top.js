@@ -8,6 +8,7 @@ import Heading from '../common/Heading';
 import { topHeadingData } from './TopHeadingData';
 import Information from './information/Information';
 import ImportantInformation from './important_information/ImportantInformation';
+import Box from './box/Box';
 
 const Top = function() {
 
@@ -16,6 +17,7 @@ const Top = function() {
   const [topBannerData, setTopBannerData] = useState([]);
   const [informationData, setInformationData] = useState([]);
   const [importantInformationData, setImportantInformationData] = useState([]);
+  const [boxData, setBoxData] = useState([]);
 
   useEffect(() => {
     axios
@@ -43,6 +45,11 @@ const Top = function() {
       .then(res => {
         setImportantInformationData(res.data);
       });
+    axios
+      .get('https://wonderful-ptolemy-a2705b.netlify.app/.netlify/functions/box?front_type=react')
+      .then(res => {
+        setBoxData(res.data);
+      });
   }, []);
 
   return (
@@ -60,6 +67,7 @@ const Top = function() {
       
       <Heading data={topHeadingData['II']} />
       <ImportantInformation data={importantInformationData} />
+      <Box data={boxData} />
       
       <Heading data={topHeadingData['S']} />
     </div>
