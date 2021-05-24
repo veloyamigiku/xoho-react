@@ -14,6 +14,8 @@ import Heading from '../common/Heading';
 import { topHeadingData } from './TopHeadingData';
 import Information from './information/Information';
 import { information } from './information/InformationData';
+import ImportantInformation from './important_information/ImportantInformation';
+import { importantInformation } from './important_information/ImportantInformationData';
 
 Enzyme.configure({
   adapter: new EnzymeAdapter()
@@ -41,6 +43,10 @@ describe('Topコンポーネント', () => {
         case "https://wonderful-ptolemy-a2705b.netlify.app/.netlify/functions/information?front_type=react":
           return {
             data: information
+          };
+        case "https://wonderful-ptolemy-a2705b.netlify.app/.netlify/functions/important_information?front_type=react":
+          return {
+            data: importantInformation
           };
       }
     });
@@ -79,6 +85,9 @@ describe('Topコンポーネント', () => {
 
     const importantInfoHeadingNode = headingNodes.at(2);
     expect(importantInfoHeadingNode.props().data).toEqual(topHeadingData['II']);
+    const importantInformationNode = wrapper.find(ImportantInformation);
+    expect(importantInformationNode).toHaveLength(1);
+    expect(importantInformationNode.at(0).props().data).toEqual(importantInformation);
 
     const serviceHeadingNode = headingNodes.at(3);
     expect(serviceHeadingNode.props().data).toEqual(topHeadingData['S']);

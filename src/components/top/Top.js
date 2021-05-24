@@ -7,6 +7,7 @@ import TopBanner from './top_banner/TopBanner';
 import Heading from '../common/Heading';
 import { topHeadingData } from './TopHeadingData';
 import Information from './information/Information';
+import ImportantInformation from './important_information/ImportantInformation';
 
 const Top = function() {
 
@@ -14,6 +15,7 @@ const Top = function() {
   const [loginMenuData, setLoginMenuData] = useState({});
   const [topBannerData, setTopBannerData] = useState([]);
   const [informationData, setInformationData] = useState([]);
+  const [importantInformationData, setImportantInformationData] = useState([]);
 
   useEffect(() => {
     axios
@@ -36,6 +38,11 @@ const Top = function() {
       .then(res => {
         setInformationData(res.data);
       });
+    axios
+      .get('https://wonderful-ptolemy-a2705b.netlify.app/.netlify/functions/important_information?front_type=react')
+      .then(res => {
+        setImportantInformationData(res.data);
+      });
   }, []);
 
   return (
@@ -52,6 +59,7 @@ const Top = function() {
       <Information data={informationData} />
       
       <Heading data={topHeadingData['II']} />
+      <ImportantInformation data={importantInformationData} />
       
       <Heading data={topHeadingData['S']} />
     </div>
