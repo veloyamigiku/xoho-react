@@ -10,7 +10,8 @@ const ServiceItem = function(props) {
           <div>
             <img
               className={classes.ServiceItemImg}
-              src={props.data.imgUrl} />
+              src={props.data.imgUrl}
+              alt='ServiceItemImg' />
           </div>
           <div>
             <div className={classes.ServiceItemTitle}>{props.data.title}</div>

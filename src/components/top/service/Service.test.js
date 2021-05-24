@@ -4,7 +4,6 @@ import EnzymeAdapter from 'enzyme-adapter-react-16';
 import Service from './Service';
 import ServiceButton from './ServiceButton';
 import { service } from './ServiceData';
-import ServiceDelim from './ServiceDelim';
 import ServiceItem from './ServiceItem';
 
 Enzyme.configure({

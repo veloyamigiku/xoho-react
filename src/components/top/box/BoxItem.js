@@ -5,7 +5,7 @@ const BoxItem = function(props) {
     <div className={classes.BoxItem}>
       <div className={classes.BoxItemTitle}>{props.data.title}</div>
       <div className={classes.BoxItemImgWrap}>
-        <img className={classes.BoxItemImg} src={props.data.imgUrl} />
+        <img className={classes.BoxItemImg} src={props.data.imgUrl} alt="BoxItemImg" />
       </div>
       <div className={classes.BoxItemDesc}>{props.data.desc}</div>
       <div className={classes.BoxItemButton}>
