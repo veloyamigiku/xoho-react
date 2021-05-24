@@ -1,0 +1,4 @@
+div.ServiceItemGroup {
+  display: flex;
+  flex-wrap: wrap;
+}

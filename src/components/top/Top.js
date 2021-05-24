@@ -9,6 +9,7 @@ import { topHeadingData } from './TopHeadingData';
 import Information from './information/Information';
 import ImportantInformation from './important_information/ImportantInformation';
 import Box from './box/Box';
+import Service from './service/Service';
 
 const Top = function() {
 
@@ -18,6 +19,7 @@ const Top = function() {
   const [informationData, setInformationData] = useState([]);
   const [importantInformationData, setImportantInformationData] = useState([]);
   const [boxData, setBoxData] = useState([]);
+  const [serviceData, setServiceData] = useState([]);
 
   useEffect(() => {
     axios
@@ -50,6 +52,11 @@ const Top = function() {
       .then(res => {
         setBoxData(res.data);
       });
+    axios
+      .get('https://wonderful-ptolemy-a2705b.netlify.app/.netlify/functions/service?front_type=react')
+      .then(res => {
+        setServiceData(res.data);
+      });
   }, []);
 
   return (
@@ -70,6 +77,7 @@ const Top = function() {
       <Box data={boxData} />
       
       <Heading data={topHeadingData['S']} />
+      <Service data={serviceData} />
     </div>
   );
 }

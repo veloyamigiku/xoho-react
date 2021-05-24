@@ -1,0 +1,33 @@
+div.ServiceItem {
+  margin-top: 20px;
+  width: calc(100% / 2);
+  box-sizing: border-box;
+}
+
+a.ServiceItemLink {
+  color: #212121;
+  text-decoration: none;
+}
+
+div.ServiceItemContent {
+  display: flex;
+  align-items: center;
+  padding-bottom: 20px;
+  border-bottom: 1px solid #e0e0e0;
+}
+
+div.ServiceItem:nth-of-type(odd) {
+  padding-right: 10px;
+}
+
+div.ServiceItem:nth-of-type(even) {
+  padding-left: 10px;
+}
+
+img.ServiceItemImg {
+  height: 78px;
+}
+
+div.ServiceItemTitle {
+  font-weight: 700;
+}
