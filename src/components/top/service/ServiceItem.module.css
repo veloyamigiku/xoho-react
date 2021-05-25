@@ -4,6 +4,14 @@ div.ServiceItem {
   box-sizing: border-box;
 }
 
+div.ServiceItem:nth-of-type(odd) {
+  padding-right: 10px;
+}
+
+div.ServiceItem:nth-of-type(even) {
+  padding-left: 10px;
+}
+
 a.ServiceItemLink {
   color: #212121;
   text-decoration: none;
@@ -16,16 +24,12 @@ div.ServiceItemContent {
   border-bottom: 1px solid #e0e0e0;
 }
 
-div.ServiceItem:nth-of-type(odd) {
-  padding-right: 10px;
-}
-
-div.ServiceItem:nth-of-type(even) {
-  padding-left: 10px;
-}
-
 img.ServiceItemImg {
   height: 78px;
+}
+
+div.ServiceItemContentRight {
+  margin-left: 10px;
 }
 
 div.ServiceItemTitle {

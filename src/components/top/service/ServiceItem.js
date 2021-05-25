@@ -13,7 +13,7 @@ const ServiceItem = function(props) {
               src={props.data.imgUrl}
               alt='ServiceItemImg' />
           </div>
-          <div>
+          <div className={classes.ServiceItemContentRight}>
             <div className={classes.ServiceItemTitle}>{props.data.title}</div>
             <div className="ServiceItemSub">{props.data.sub}</div>
           </div>
