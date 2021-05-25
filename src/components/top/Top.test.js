@@ -20,6 +20,7 @@ import Box from './box/Box';
 import { box } from './box/BoxData';
 import Service from './service/Service';
 import { service } from './service/ServiceData';
+import '../../fontawesome';
 
 Enzyme.configure({
   adapter: new EnzymeAdapter()

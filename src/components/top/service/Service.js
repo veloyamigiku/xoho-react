@@ -42,10 +42,10 @@ const Service = function(props) {
       <div className={classes.ServiceItemGroup}>
         {serviceItemList}
       </div>
-      <div>
+      <div className={classes.ServiceButtonGroup}>
         {serviceButtonList1}
       </div>
-      <div>
+      <div className={classes.ServiceButtonGroup}>
         {serviceButtonList2}
       </div>
     </div>
