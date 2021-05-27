@@ -1,0 +1,34 @@
+div.RankingWrap {
+  position: relative;
+  margin-top: 30px;
+}
+
+div.RankingPrevBtn {
+  position: absolute;
+  top: calc(50% - 12px);
+  left: 10px;
+  width: 24px;
+  height: 24px;
+  transform: rotate(45deg);
+  border-left: solid 5px #bdbdbd;
+  border-bottom: solid 5px #bdbdbd;
+}
+
+div.Ranking {
+  display: flex;
+  overflow-x: auto;
+  scroll-snap-type: x mandatory;
+  margin-left: 34px;
+  margin-right: 34px;
+}
+
+div.RankingNextBtn {
+  position: absolute;
+  top: calc(50% - 12px);
+  right: 10px;
+  width: 24px;
+  height: 24px;
+  transform: rotate(45deg);
+  border-top: solid 5px #bdbdbd;
+  border-right: solid 5px #bdbdbd;
+}

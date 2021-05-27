@@ -1,6 +1,7 @@
 import Enzyme from 'enzyme';
 import { mount } from 'enzyme';
 import EnzymeAdapter from 'enzyme-adapter-react-16';
+import '../../fontawesome';
 import Top from './Top';
 import TopMenu from '../common/TopMenu';
 import LoginMenu from './login_menu/LoginMenu';
@@ -20,7 +21,8 @@ import Box from './box/Box';
 import { box } from './box/BoxData';
 import Service from './service/Service';
 import { service } from './service/ServiceData';
-import '../../fontawesome';
+import { ranking } from './ranking/RankingData';
+import Ranking from './ranking/Ranking';
 
 Enzyme.configure({
   adapter: new EnzymeAdapter()
@@ -61,6 +63,10 @@ describe('Topコンポーネント', () => {
           return {
             data: service
           };
+        case "https://wonderful-ptolemy-a2705b.netlify.app/.netlify/functions/ranking?front_type=react":
+          return {
+            data: ranking
+          };
       }
     });
   })
@@ -89,6 +95,10 @@ describe('Topコンポーネント', () => {
 
     const rankingHeadingNode = headingNodes.at(0);
     expect(rankingHeadingNode.props().data).toEqual(topHeadingData['R']);
+
+    const rankingNode = wrapper.find(Ranking);
+    expect(rankingNode).toHaveLength(1);
+    expect(rankingNode.at(0).props().data).toEqual(ranking);
 
     const infoHeadingNode = headingNodes.at(1);
     expect(infoHeadingNode.props().data).toEqual(topHeadingData['I']);

@@ -10,12 +10,14 @@ import Information from './information/Information';
 import ImportantInformation from './important_information/ImportantInformation';
 import Box from './box/Box';
 import Service from './service/Service';
+import Ranking from './ranking/Ranking';
 
 const Top = function() {
 
   const [topMenuData, setTopMenuData] = useState([]);
   const [loginMenuData, setLoginMenuData] = useState({});
   const [topBannerData, setTopBannerData] = useState([]);
+  const [rankingData, setRankingData] = useState([]);
   const [informationData, setInformationData] = useState([]);
   const [importantInformationData, setImportantInformationData] = useState([]);
   const [boxData, setBoxData] = useState([]);
@@ -36,6 +38,11 @@ const Top = function() {
       .get('https://wonderful-ptolemy-a2705b.netlify.app/.netlify/functions/top_banner?front_type=react')
       .then(res => {
         setTopBannerData(res.data);
+      });
+    axios
+      .get('https://wonderful-ptolemy-a2705b.netlify.app/.netlify/functions/ranking?front_type=react')
+      .then(res => {
+        setRankingData(res.data);
       });
     axios
       .get('https://wonderful-ptolemy-a2705b.netlify.app/.netlify/functions/information?front_type=react')
@@ -68,6 +75,7 @@ const Top = function() {
       <TopBanner data={topBannerData} />
       
       <Heading data={topHeadingData['R']} />
+      <Ranking data={rankingData} />
       
       <Heading data={topHeadingData['I']} />
       <Information data={informationData} />
