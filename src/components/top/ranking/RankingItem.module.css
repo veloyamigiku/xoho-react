@@ -1,15 +1,15 @@
-div.RankingItem {
+/*div.RankingItem {
   flex-shrink: 0;
   width: calc(100% / 3);
   box-sizing: border-box;
   padding: 0 10px;
-}
-
+}*/
+/*
 div.RankingItem:first-of-type,
 div.RankingItem:nth-of-type(3n + 1) {
   scroll-snap-align: start;
 }
-
+*/
 img.RankingItemImg {
   width: 100%;
   height: auto;

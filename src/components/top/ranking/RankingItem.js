@@ -1,5 +1,7 @@
+import React from 'react';
 import classes from './RankingItem.module.css';
 
+//const RankingItem = React.forwardRef((props, ref) => {
 const RankingItem = function(props) {
 
   return (
@@ -21,7 +23,7 @@ const RankingItem = function(props) {
       </a>
     </div>
   );
-
 }
+//});
 
 export default RankingItem;
