@@ -1,11 +1,13 @@
+import { act } from '@testing-library/react';
+import axios from 'axios';
 import Enzyme from 'enzyme';
 import EnzymeAdapter from 'enzyme-adapter-react-16';
-import { mount } from 'enzyme';
-import Top from './components/top/Top';
 import { MemoryRouter } from 'react-router';
+import { mount } from 'enzyme';
+
 import Contents from './Contents';
-import axios from 'axios';
-import { act } from '@testing-library/react';
+import NowPlaying from './components/now_playing/NowPlaying';
+import Top from './components/top/Top';
 
 Enzyme.configure({
   adapter: new EnzymeAdapter()
@@ -36,4 +38,19 @@ describe('Contentsコンポーネント', () => {
     const top = wrapper.find(Top);
     expect(top).toHaveLength(1);
   });
+
+  it('ルーティングのテスト_' + NowPlaying.name, async () => {
+    let wrapper;
+    await act(async () => {
+      wrapper = mount(
+        <MemoryRouter initialEntries={['/movie/now_playing']}>
+          <Contents />
+        </MemoryRouter>
+      );
+    });
+    wrapper.update();
+
+    const nowPlaying = wrapper.find(NowPlaying);
+    expect(nowPlaying).toHaveLength(1);
+  })
 });
