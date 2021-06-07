@@ -4,6 +4,7 @@ import { useEffect, useState } from "react/cjs/react.development";
 import classes from "./NowPlaying.module.css";
 import TopMenu from "../common/TopMenu";
 import Heading from "../common/Heading";
+import LargeButtonContainer from "../common/LargeButtonContainer";
 import { nowPlayingHeadingData } from "./NowPlayingHeadingData";
 
 const NowPlaying = function() {
@@ -23,13 +24,15 @@ const NowPlaying = function() {
         setNowPlayingLargeButtonData(res.data);
       })
   }, []);
-  
+
   return (
     <div className={classes.NowPlaying}>
       
       <TopMenu data={topMenuData} />
 
       <Heading data={nowPlayingHeadingData.NP} />
+
+      <LargeButtonContainer data={nowPlayingLargeButtonData} />
 
     </div>
   );

@@ -7,8 +7,10 @@ import NowPlaying from './NowPlaying';
 import { topMenu } from '../common/TopMenuData';
 import TopMenu from '../common/TopMenu';
 import Heading from '../common/Heading';
+import LargeButton from '../common/LargeButton';
 import { nowPlayingHeadingData } from './NowPlayingHeadingData';
 import { nowPlayingLargeButton } from './NowPlayingLargeButtonData';
+import LargeButtonContainer from '../common/LargeButtonContainer';
 
 Enzyme.configure({
   adapter: new EnzymeAdapter()
@@ -51,5 +53,9 @@ describe('NowPlayingコンポーネント', () => {
     expect(nowPlayingHeadingNode).toHaveLength(1);
     expect(nowPlayingHeadingNode.props().data).toEqual(nowPlayingHeadingData.NP);
 
+    const largeButtonContainerNode = wrapper.find(LargeButtonContainer);
+    expect(largeButtonContainerNode).toHaveLength(1);
+    expect(largeButtonContainerNode.at(0).props().data).toEqual(nowPlayingLargeButton);
+    
   });
 });
