@@ -1,0 +1,4 @@
+div.MovieContainer {
+    display: flex;
+    flex-wrap: wrap;
+}

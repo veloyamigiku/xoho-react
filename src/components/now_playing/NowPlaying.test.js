@@ -11,6 +11,8 @@ import LargeButton from '../common/LargeButton';
 import { nowPlayingHeadingData } from './NowPlayingHeadingData';
 import { nowPlayingLargeButton } from './NowPlayingLargeButtonData';
 import LargeButtonContainer from '../common/LargeButtonContainer';
+import MovieContainer from '../common/MovieContainer';
+import { nowPlaying } from './NowPlayingData';
 
 Enzyme.configure({
   adapter: new EnzymeAdapter()
@@ -30,6 +32,10 @@ describe('NowPlayingコンポーネント', () => {
         case 'https://wonderful-ptolemy-a2705b.netlify.app/.netlify/functions/large_button?front_type=react&page_type=now_playing':
           return {
             data: nowPlayingLargeButton
+          };
+        case 'https://wonderful-ptolemy-a2705b.netlify.app/.netlify/functions/now_playing?front_type=react':
+          return {
+            data: nowPlaying
           };
       }
     })
@@ -53,9 +59,13 @@ describe('NowPlayingコンポーネント', () => {
     expect(nowPlayingHeadingNode).toHaveLength(1);
     expect(nowPlayingHeadingNode.props().data).toEqual(nowPlayingHeadingData.NP);
 
+    const movieContainerNode = wrapper.find(MovieContainer);
+    expect(movieContainerNode).toHaveLength(1);
+    expect(movieContainerNode.at(0).props().data).toEqual(nowPlaying);
+
     const largeButtonContainerNode = wrapper.find(LargeButtonContainer);
     expect(largeButtonContainerNode).toHaveLength(1);
     expect(largeButtonContainerNode.at(0).props().data).toEqual(nowPlayingLargeButton);
-    
+
   });
 });
