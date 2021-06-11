@@ -2,5 +2,4 @@ div.TopMenu {
     display: flex;
     justify-content: center;
     margin-top: 20px;
-    border-bottom: 4px solid #bdbdbd;
 }

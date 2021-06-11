@@ -1,17 +1,25 @@
 div.TopMenuItem {
+  position: relative;
   background-color: #fff;
-}
-
-div.TopMenuItem:nth-of-type(n+2) {
-  border-left: 1px solid;
-  border-image: linear-gradient(to bottom, #fafafa 0%,#e4e4e4 100%);
-  /* ボーダー画像の分割数を1として分割しない。 */
-  border-image-slice: 1;
 }
 
 a.TopMenuItemLink {
   color: #424242;
   text-decoration: none;
+}
+
+div.TopMenuItem:nth-of-type(n+2) a.TopMenuItemLink::before {
+  position: absolute;
+  width: 1px;
+  left: 0;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  content: '';
+  border-left: 1px solid;
+  border-image: linear-gradient(to bottom, #fafafa 0%,#e4e4e4 100%);
+  /* ボーダー画像の分割数を1として分割しない。 */
+  border-image-slice: 1;
 }
 
 div.TopMenuItemContent {

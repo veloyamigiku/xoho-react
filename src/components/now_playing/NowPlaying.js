@@ -16,7 +16,7 @@ const NowPlaying = function() {
   
   useEffect(() => {
     axios
-      .get('https://wonderful-ptolemy-a2705b.netlify.app/.netlify/functions/top_menu?front_type=react')
+      .get('https://wonderful-ptolemy-a2705b.netlify.app/.netlify/functions/top_menu?active_page=now_playing&front_type=react')
       .then(res => {
         setTopMenuData(res.data);
       });

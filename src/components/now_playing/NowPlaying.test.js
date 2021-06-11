@@ -25,7 +25,7 @@ describe('NowPlayingコンポーネント', () => {
   beforeEach(() => {
     axios.get.mockImplementation(async (url) => {
       switch (url) {
-        case 'https://wonderful-ptolemy-a2705b.netlify.app/.netlify/functions/top_menu?front_type=react':
+        case 'https://wonderful-ptolemy-a2705b.netlify.app/.netlify/functions/top_menu?active_page=now_playing&front_type=react':
           return {
             data: topMenu
           };
