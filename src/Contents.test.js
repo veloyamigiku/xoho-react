@@ -8,6 +8,7 @@ import { mount } from 'enzyme';
 import Contents from './Contents';
 import NowPlaying from './components/now_playing/NowPlaying';
 import Top from './components/top/Top';
+import ComingSoon from './components/coming_soon/ComingSoon';
 
 Enzyme.configure({
   adapter: new EnzymeAdapter()
@@ -52,5 +53,21 @@ describe('Contentsコンポーネント', () => {
 
     const nowPlaying = wrapper.find(NowPlaying);
     expect(nowPlaying).toHaveLength(1);
-  })
+  });
+
+  it('ルーティングのテスト_' + ComingSoon.name, async () => {
+    let wrapper;
+    await act(async () => {
+      wrapper = mount(
+        <MemoryRouter initialEntries={['/movie/coming_soon']}>
+          <Contents />
+        </MemoryRouter>
+      )
+    });
+    wrapper.update();
+
+    const comingSoon = wrapper.find(ComingSoon);
+    expect(comingSoon).toHaveLength(1);
+  });
+  
 });
