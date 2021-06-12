@@ -2,16 +2,16 @@ import Enzyme, { shallow } from 'enzyme';
 import EnzymeAdapter from 'enzyme-adapter-react-16';
 import { nowPlaying } from '../now_playing/NowPlayingData';
 import Movie from './Movie';
-import MovieContainer from './MovieContainer';
+import MovieGroup from './MovieGroup';
 
 Enzyme.configure({
   adapter: new EnzymeAdapter()
 });
 
-describe('MovieContainerコンポーネント', () => {
+describe('MovieGroupコンポーネント', () => {
   it('プロップスのテスト', () => {
     const data = nowPlaying;
-    const wrapper = shallow(<MovieContainer data={data} />);
+    const wrapper = shallow(<MovieGroup data={data} />);
 
     const movieNodes = wrapper.find(Movie);
     expect(movieNodes).toHaveLength(data.length);

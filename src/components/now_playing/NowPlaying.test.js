@@ -7,11 +7,10 @@ import NowPlaying from './NowPlaying';
 import { topMenu } from '../common/TopMenuData';
 import TopMenu from '../common/TopMenu';
 import Heading from '../common/Heading';
-import LargeButton from '../common/LargeButton';
 import { nowPlayingHeadingData } from './NowPlayingHeadingData';
 import { nowPlayingLargeButton } from './NowPlayingLargeButtonData';
 import LargeButtonContainer from '../common/LargeButtonContainer';
-import MovieContainer from '../common/MovieContainer';
+import MovieGroup from '../common/MovieGroup';
 import { nowPlaying } from './NowPlayingData';
 
 Enzyme.configure({
@@ -59,9 +58,9 @@ describe('NowPlayingコンポーネント', () => {
     expect(nowPlayingHeadingNode).toHaveLength(1);
     expect(nowPlayingHeadingNode.props().data).toEqual(nowPlayingHeadingData.NP);
 
-    const movieContainerNode = wrapper.find(MovieContainer);
-    expect(movieContainerNode).toHaveLength(1);
-    expect(movieContainerNode.at(0).props().data).toEqual(nowPlaying);
+    const movieGroupNode = wrapper.find(MovieGroup);
+    expect(movieGroupNode).toHaveLength(1);
+    expect(movieGroupNode.at(0).props().data).toEqual(nowPlaying);
 
     const largeButtonContainerNode = wrapper.find(LargeButtonContainer);
     expect(largeButtonContainerNode).toHaveLength(1);

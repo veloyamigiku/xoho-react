@@ -6,7 +6,7 @@ import TopMenu from "../common/TopMenu";
 import Heading from "../common/Heading";
 import LargeButtonContainer from "../common/LargeButtonContainer";
 import { nowPlayingHeadingData } from "./NowPlayingHeadingData";
-import MovieContainer from "../common/MovieContainer";
+import MovieGroup from "../common/MovieGroup";
 
 const NowPlaying = function() {
 
@@ -39,7 +39,7 @@ const NowPlaying = function() {
 
       <Heading data={nowPlayingHeadingData.NP} />
 
-      <MovieContainer data={nowPlayingData} />
+      <MovieGroup data={nowPlayingData} />
 
       <LargeButtonContainer data={nowPlayingLargeButtonData} />
 

@@ -1,7 +1,7 @@
-import classes from "./MovieContainer.module.css";
+import classes from "./MovieGroup.module.css";
 import Movie from "./Movie";
 
-const MovieContainer = function(props) {
+const MovieGroup = function(props) {
 
   var movieList = [];
   if (props.data && props.data.length > 0) {
@@ -15,9 +15,9 @@ const MovieContainer = function(props) {
   }
 
   return (
-    <div className={classes.MovieContainer}>{movieList}</div>
+    <div className={classes.MovieGroup}>{movieList}</div>
   );
   
 }
 
-export default MovieContainer;
+export default MovieGroup;
