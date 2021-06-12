@@ -60,12 +60,12 @@ export const menuData = {
       [
         {
           label: '上映中作品情報',
-          url: commonData.url + '/movie/',
+          url: commonData.url + '/movie/now_playing',
           icon: ['fas', 'expand-arrows-alt']
         },
         {
           label: '公開予定作品情報',
-          url: commonData.url + '/movie/type=new',
+          url: commonData.url + '/movie/coming_soon',
           icon: ['fas', 'compress-arrows-alt']
         }
       ]
