@@ -9,6 +9,8 @@ import Heading from '../common/Heading';
 import { comingSoonHeadingData } from './ComingSoonHeadingData';
 import { comingSoonLargeButton } from './ComingSoonLargeButtonData';
 import LargeButtonContainer from '../common/LargeButtonContainer';
+import { comingSoon } from './ComingSoonData';
+import MovieContainer from '../common/MovieContainer';
 
 Enzyme.configure({
   adapter: new EnzymeAdapter()
@@ -25,6 +27,10 @@ describe('ComingSoonコンポーネント', () => {
           return {
             data: topMenu
           };
+        case "https://wonderful-ptolemy-a2705b.netlify.app/.netlify/functions/coming_soon?front_type=vue":
+          return {
+            data: comingSoon
+          }
         case "https://wonderful-ptolemy-a2705b.netlify.app/.netlify/functions/large_button?front_type=react&page_type=coming_soon":
           return {
             data: comingSoonLargeButton
@@ -49,6 +55,10 @@ describe('ComingSoonコンポーネント', () => {
     expect(headingNodes).toHaveLength(Object.keys(comingSoonHeadingData).length);
     const comingSoonHeadingNode = headingNodes.at(0);
     expect(comingSoonHeadingNode.props().data).toEqual(comingSoonHeadingData.CS);
+
+    const movieContainerNode = wrapper.find(MovieContainer);
+    expect(movieContainerNode).toHaveLength(1);
+    expect(movieContainerNode.at(0).props().data).toEqual(comingSoon);
 
     const comingSoonLargeButtonContainer = wrapper.find(LargeButtonContainer);
     expect(comingSoonLargeButtonContainer).toHaveLength(1);

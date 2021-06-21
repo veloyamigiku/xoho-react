@@ -1,0 +1,9 @@
+div.MovieHeader {
+    padding: 15px 18px;
+    background: linear-gradient(160deg, #eee 0%, #f5f5f5 100%);
+}
+
+div.MovieHeaderTitle {
+    font-size: 20px;
+    font-weight: 700;
+}
