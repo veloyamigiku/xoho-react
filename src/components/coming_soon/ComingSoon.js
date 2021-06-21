@@ -6,6 +6,7 @@ import { comingSoonHeadingData } from './ComingSoonHeadingData';
 import Heading from '../common/Heading';
 import LargeButtonContainer from '../common/LargeButtonContainer';
 import MovieContainer from '../common/MovieContainer';
+import MovieSchedule from '../common/MovieSchedule';
 
 const ComingSoon = function() {
   
@@ -35,6 +36,7 @@ const ComingSoon = function() {
     <div className={classes.ComingSoon}>
       <TopMenu data={topMenuData} />
       <Heading data={comingSoonHeadingData.CS} />
+      <MovieSchedule data={comingSoonData} />
       <MovieContainer data={comingSoonData} />
       <LargeButtonContainer data={comingSoonLargeButtonData} />
     </div>
