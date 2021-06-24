@@ -14,7 +14,9 @@ const MovieSchedule = function(props) {
         <div
           className={classes.MovieScheduleDateWrap}
           key={'MovieScheduleDateWrap' + movieScheduleDateIdx}>
-          <div className={classes.MovieScheduleDate}>{ dateStr }</div>
+          <div
+            className={classes.MovieScheduleDate}
+            onClick={() => props.tellDateIdxToParent(movieScheduleDate.idx)}>{ dateStr }</div>
         </div>
       );
     });

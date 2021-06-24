@@ -1,7 +1,7 @@
 import classes from './ComingSoon.module.css';
-import axios from "axios";
-import { useEffect, useState } from "react/cjs/react.development"
-import TopMenu from "../common/TopMenu"
+import axios from 'axios';
+import { useEffect, useState } from 'react';
+import TopMenu from '../common/TopMenu';
 import { comingSoonHeadingData } from './ComingSoonHeadingData';
 import Heading from '../common/Heading';
 import LargeButtonContainer from '../common/LargeButtonContainer';
@@ -13,6 +13,7 @@ const ComingSoon = function() {
   const [topMenuData, setTopMenuData] = useState([]);
   const [comingSoonData, setComingSoonData] = useState([]);
   const [comingSoonLargeButtonData, setComingSoonLargeButtonData] = useState([]);
+  const [scrollItemIdx, setScrollItemIdx] = useState(-1);
 
   useEffect(() => {
     axios
@@ -32,12 +33,20 @@ const ComingSoon = function() {
       });
   }, []);
 
+  function scrollToMovieContainerItem(dateIdx) {
+    setScrollItemIdx(dateIdx);
+  }
+
   return (
     <div className={classes.ComingSoon}>
       <TopMenu data={topMenuData} />
       <Heading data={comingSoonHeadingData.CS} />
-      <MovieSchedule data={comingSoonData} />
-      <MovieContainer data={comingSoonData} />
+      <MovieSchedule
+        data={comingSoonData}
+        tellDateIdxToParent={(dateIdx) => scrollToMovieContainerItem(dateIdx)} />
+      <MovieContainer
+        data={comingSoonData}
+        scrollItemIdx={scrollItemIdx} />
       <LargeButtonContainer data={comingSoonLargeButtonData} />
     </div>
   );

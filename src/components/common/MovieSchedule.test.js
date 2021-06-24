@@ -9,6 +9,22 @@ Enzyme.configure({
 });
 
 describe('MovieScheduleコンポーネント', () => {
+  it('イベントのテスト', () => {
+    const data = comingSoon;
+    const tellDateIdxToParentMock = jest.fn();
+    const wrapper = shallow(
+      <MovieSchedule
+        data={data}
+        tellDateIdxToParent={tellDateIdxToParentMock} />
+    );
+
+    const scheduleDateList = getScheduleDateList(data);
+    const movieScheduleDateNodes = wrapper.find('div.MovieScheduleDate');
+    expect(movieScheduleDateNodes).toHaveLength(scheduleDateList.length);
+    movieScheduleDateNodes.at(5).simulate('click');
+    expect(tellDateIdxToParentMock.mock.calls).toHaveLength(1);
+    expect(tellDateIdxToParentMock.mock.calls[0][0]).toEqual(scheduleDateList[5].idx);
+  });
   it('プロップスのテスト', () => {
     const data = comingSoon;
     const wrapper = shallow(
