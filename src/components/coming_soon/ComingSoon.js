@@ -7,13 +7,15 @@ import Heading from '../common/Heading';
 import LargeButtonContainer from '../common/LargeButtonContainer';
 import MovieContainer from '../common/MovieContainer';
 import MovieSchedule from '../common/MovieSchedule';
+import { useRef } from 'react';
 
 const ComingSoon = function() {
   
   const [topMenuData, setTopMenuData] = useState([]);
   const [comingSoonData, setComingSoonData] = useState([]);
   const [comingSoonLargeButtonData, setComingSoonLargeButtonData] = useState([]);
-  const [scrollItemIdx, setScrollItemIdx] = useState(-1);
+
+  const movieContainerRef = useRef();
 
   useEffect(() => {
     axios
@@ -34,7 +36,7 @@ const ComingSoon = function() {
   }, []);
 
   function scrollToMovieContainerItem(dateIdx) {
-    setScrollItemIdx(dateIdx);
+    movieContainerRef.current.scrollToMovieContainerItem(dateIdx);
   }
 
   return (
@@ -46,7 +48,7 @@ const ComingSoon = function() {
         tellDateIdxToParent={(dateIdx) => scrollToMovieContainerItem(dateIdx)} />
       <MovieContainer
         data={comingSoonData}
-        scrollItemIdx={scrollItemIdx} />
+        ref={movieContainerRef} />
       <LargeButtonContainer data={comingSoonLargeButtonData} />
     </div>
   );

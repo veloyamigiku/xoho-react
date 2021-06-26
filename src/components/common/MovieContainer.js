@@ -1,9 +1,10 @@
-import { useRef } from 'react';
+import React, { useRef } from 'react';
+import { forwardRef } from 'react';
+import { useImperativeHandle } from 'react';
 import { createRef } from 'react';
-import { useEffect } from 'react';
 import MovieContainerItem from './MovieContainerItem';
 
-const MovieContainer = function(props) {
+const MovieContainer = function(props, ref) {
 
   const movieContrainerItemWrapRef = useRef([]);
   if (props.data && props.data.length > 0) {
@@ -12,11 +13,11 @@ const MovieContainer = function(props) {
     });
   }
 
-  useEffect(() => {
-    if (props.scrollItemIdx !== -1) {
-      movieContrainerItemWrapRef.current[props.scrollItemIdx].current.scrollIntoView({behavior: "smooth", block: "start"});
+  useImperativeHandle(ref, () => ({
+    scrollToMovieContainerItem: (dateIdx) => {
+      movieContrainerItemWrapRef.current[dateIdx].current.scrollIntoView({behavior: "smooth", block: "start"});
     }
-  }, [props.scrollItemIdx]);
+  }));
 
   var movieContainerItemList = [];
   if (props.data && props.data.length > 0) {
@@ -39,4 +40,4 @@ const MovieContainer = function(props) {
 
 }
 
-export default MovieContainer;
+export default forwardRef(MovieContainer);
