@@ -9,6 +9,7 @@ import Contents from './Contents';
 import NowPlaying from './components/now_playing/NowPlaying';
 import Top from './components/top/Top';
 import ComingSoon from './components/coming_soon/ComingSoon';
+import Theater from './components/theater/Theater';
 
 Enzyme.configure({
   adapter: new EnzymeAdapter()
@@ -68,6 +69,21 @@ describe('Contentsコンポーネント', () => {
 
     const comingSoon = wrapper.find(ComingSoon);
     expect(comingSoon).toHaveLength(1);
+  });
+  
+  it('ルーティングのテスト_' + Theater.name, async () => {
+    let wrapper;
+    await act(async () => {
+      wrapper = mount(
+        <MemoryRouter initialEntries={['/theater']}>
+          <Contents />
+        </MemoryRouter>
+      )
+    });
+    wrapper.update();
+
+    const theater = wrapper.find(Theater);
+    expect(theater).toHaveLength(1);
   });
   
 });
