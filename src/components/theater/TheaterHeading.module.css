@@ -1,0 +1,16 @@
+div.TheaterHeading {
+    margin-top: 50px;
+    padding: 10px 20px;
+    background-color: #424242;
+}
+
+div.TheaterHeadingTitle {
+    font-size: 18px;
+    color: #fff;
+}
+
+div.TheaterHeadingSub {
+    margin-top: 3px;
+    font-size: 8px;
+    color: #fff;
+}
