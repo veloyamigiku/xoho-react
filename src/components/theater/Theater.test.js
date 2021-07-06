@@ -11,6 +11,8 @@ import LargeButtonContainer from '../common/LargeButtonContainer';
 import { theaterLargeButton } from '../now_playing/NowPlayingLargeButtonData';
 import TheaterHeading from './TheaterHeading';
 import { theaterHeadingData } from './TheaterHeadingData';
+import TheaterContainer from './TheaterContainer';
+import { theaterData } from './TheaterData';
 
 Enzyme.configure({
   adapter: new EnzymeAdapter()
@@ -29,6 +31,14 @@ describe('Theaterコンポーネント', () => {
         case 'https://wonderful-ptolemy-a2705b.netlify.app/.netlify/functions/large_button?front_type=react&page_type=theater':
           return {
             data: theaterLargeButton
+          };
+        case 'https://wonderful-ptolemy-a2705b.netlify.app/.netlify/functions/theater?type=all&front_type=react':
+          return {
+            data: theaterData
+          };
+        case 'https://wonderful-ptolemy-a2705b.netlify.app/.netlify/functions/theater?type=all_type&front_type=react':
+          return {
+            data: theaterData
           };
       }
     });
@@ -57,13 +67,22 @@ describe('Theaterコンポーネント', () => {
     const theaterHeadingNodes = wrapper.find(TheaterHeading);
     expect(theaterHeadingNodes).toHaveLength(Object.keys(theaterHeadingData).length);
 
+    const theaterContainerNodes = wrapper.find(TheaterContainer);
+    expect(theaterContainerNodes).toHaveLength(2);
+
     const tlTheaterHeadingNode = theaterHeadingNodes.at(0);
     expect(tlTheaterHeadingNode).toHaveLength(1);
     expect(tlTheaterHeadingNode.props().data).toEqual(theaterHeadingData.TL);
 
+    const tlTheaterContainerNode = theaterContainerNodes.at(0);
+    expect(tlTheaterContainerNode.props().data).toEqual(theaterData);
+
     const fbtlTheaterHeadingNode = theaterHeadingNodes.at(1);
     expect(fbtlTheaterHeadingNode).toHaveLength(1);
     expect(fbtlTheaterHeadingNode.props().data).toEqual(theaterHeadingData.FBTL);
+
+    const fbtlTheaterContainerNode = theaterContainerNodes.at(1);
+    expect(fbtlTheaterContainerNode.props().data).toEqual(theaterData);
 
     const largeButtonContainerNode = wrapper.find(LargeButtonContainer);
     expect(largeButtonContainerNode).toHaveLength(1);

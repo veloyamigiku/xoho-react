@@ -7,11 +7,14 @@ import { headingData } from './HeadingData';
 import LargeButtonContainer from '../common/LargeButtonContainer';
 import TheaterHeading from './TheaterHeading';
 import { theaterHeadingData } from './TheaterHeadingData';
+import TheaterContainer from './TheaterContainer';
 
-const Theater = function(props) {
+const Theater = function() {
 
   const [topMenuData, setTopMenuData] = useState([]);
   const [largeButtonData, setLargeButtonData] = useState([]);
+  const [allTheaterData, setAllTheaterData] = useState([]);
+  const [allTypeTheaterData, setAllTypeTheaterData] = useState([]);
 
   useEffect(() => {
     axios
@@ -24,6 +27,16 @@ const Theater = function(props) {
       .then(res => {
         setLargeButtonData(res.data);
       });
+    axios
+      .get('https://wonderful-ptolemy-a2705b.netlify.app/.netlify/functions/theater?type=all&front_type=react')
+      .then(res => {
+        setAllTheaterData(res.data);
+      });
+    axios
+      .get('https://wonderful-ptolemy-a2705b.netlify.app/.netlify/functions/theater?type=all_type&front_type=react')
+      .then(res => {
+        setAllTypeTheaterData(res.data);
+      });
   }, []);
 
   return (
@@ -32,7 +45,9 @@ const Theater = function(props) {
       <Heading data={headingData.NH} />
       <Heading data={headingData.PBTT} />
       <TheaterHeading data={theaterHeadingData.TL} />
+      <TheaterContainer data={allTheaterData} />
       <TheaterHeading data={theaterHeadingData.FBTL} />
+      <TheaterContainer data={allTypeTheaterData} />
       <div className={classes.TheaterInfo}>全劇場のお問い合わせ電話番号一覧は<a href=".">こちら</a></div>
       <LargeButtonContainer data={largeButtonData} />
     </div>
