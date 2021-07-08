@@ -9,7 +9,7 @@ import Contents from './Contents';
 import NowPlaying from './components/now_playing/NowPlaying';
 import Top from './components/top/Top';
 import ComingSoon from './components/coming_soon/ComingSoon';
-import Theater from './components/theater/Theater';
+import TheaterTop from './components/theater/TheaterTop';
 
 Enzyme.configure({
   adapter: new EnzymeAdapter()
@@ -71,7 +71,7 @@ describe('Contentsコンポーネント', () => {
     expect(comingSoon).toHaveLength(1);
   });
   
-  it('ルーティングのテスト_' + Theater.name, async () => {
+  it('ルーティングのテスト_' + TheaterTop.name, async () => {
     let wrapper;
     await act(async () => {
       wrapper = mount(
@@ -82,7 +82,7 @@ describe('Contentsコンポーネント', () => {
     });
     wrapper.update();
 
-    const theater = wrapper.find(Theater);
+    const theater = wrapper.find(TheaterTop);
     expect(theater).toHaveLength(1);
   });
   

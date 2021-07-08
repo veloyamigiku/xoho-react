@@ -1,5 +1,5 @@
 import { library } from '@fortawesome/fontawesome-svg-core';
-import { faArrowsAlt, faBan, faBoxOpen, faCompactDisc, faCompress, faCompressAlt, faCompressArrowsAlt, faCouch, faDolly, faExpandArrowsAlt, faFileVideo, faFilm, faHome, faMapSigns, faPeopleCarry, faRemoveFormat, faRoute, faSign, faSignInAlt, faSuitcase, faTape, faTrailer, faTruckLoading, faTruckMoving, faVideo, faYenSign } from '@fortawesome/free-solid-svg-icons';
+import { faAdjust, faAirFreshener, faAllergies, faAmbulance, faAmericanSignLanguageInterpreting, faArrowsAlt, faBan, faBoxOpen, faCompactDisc, faCompress, faCompressAlt, faCompressArrowsAlt, faCouch, faDolly, faExpandArrowsAlt, faFileVideo, faFilm, faHome, faMapSigns, faPeopleCarry, faRemoveFormat, faRoute, faSign, faSignInAlt, faSuitcase, faTape, faTrailer, faTruckLoading, faTruckMoving, faVideo, faYenSign } from '@fortawesome/free-solid-svg-icons';
 import { faFileVideo as farFileVideo } from '@fortawesome/free-regular-svg-icons';
 
 
@@ -30,5 +30,10 @@ library.add(
     faRoute,
     faDolly,
     faYenSign,
-    faBan
+    faBan,
+    faAdjust,
+    faAirFreshener,
+    faAllergies,
+    faAmbulance,
+    faAmericanSignLanguageInterpreting
 );
