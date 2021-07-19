@@ -18,10 +18,10 @@ describe('Theaterコンポーネント', () => {
     expect(theaterLinkNode.at(0).props().href).toEqual(data.url);
     const theaterNameNode = wrapper.find('div.TheaterName');
     expect(theaterNameNode).toHaveLength(1);
-    expect(theaterNameNode.at(0).text()).toEqual(data.name);
+    expect(theaterNameNode.at(0).text()).toContain(data.name);
     const theaterSubNode = wrapper.find('div.TheaterSub');
     expect(theaterSubNode).toHaveLength(1);
-    expect(theaterSubNode.at(0).text()).toEqual(data.sub);
+    expect(theaterSubNode.at(0).text()).toContain(data.sub);
     const theaterTypeNameNodes = wrapper.find('div.TheaterTypeName');
     expect(theaterTypeNameNodes).toHaveLength(data.type.length);
     const theaterTypeIconNodes = wrapper.find(FontAwesomeIcon);

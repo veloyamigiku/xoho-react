@@ -1,4 +1,4 @@
-import classes from './Theater.module.css';
+import classes from './TheaterTop.module.css';
 import axios from 'axios';
 import { useEffect, useState } from 'react';
 import TopMenu from '../common/TopMenu';
@@ -40,7 +40,7 @@ const TheaterTop = function() {
   }, []);
 
   return (
-    <div className={classes.Theater}>
+    <div className={classes.TheaterTop}>
       <TopMenu data={topMenuData} />
       <Heading data={headingData.NH} />
       <Heading data={headingData.PBTT} />
