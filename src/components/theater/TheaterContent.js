@@ -1,3 +1,4 @@
+import classes from './TheaterContent.module.css';
 import TheaterPrefecture from './TheaterPrefecture';
 
 const TheaterContent = function(props) {
@@ -12,7 +13,7 @@ const TheaterContent = function(props) {
     });
   }
   return (
-    <div>
+    <div className={classes.TheaterContent}>
       {prefectureList}
     </div>
   );
