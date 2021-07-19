@@ -1,3 +1,4 @@
+import classes from './TheaterPrefecture.module.css';
 import Theater from './Theater';
 
 const TheaterPrefecture = function(props) {
@@ -13,9 +14,9 @@ const TheaterPrefecture = function(props) {
     });
   }
   return (
-    <div>
-      <div className="TheaterPrefectureName">{props.data.name}</div>
-      <div className="TheaterPrefectureSub">{props.data.sub}</div>
+    <div className={classes.TheaterPrefecture}>
+      <div className={classes.TheaterPrefectureName}>{props.data.name}</div>
+      <div className={classes.TheaterPrefectureSub}>{props.data.sub}</div>
       <div>
         {theaterList}
       </div>
