@@ -1,0 +1,13 @@
+div.TheaterHeader {
+    padding: 10px;
+}
+
+div.TheaterHeaderTitle {
+    font-weight: 700;
+}
+
+div.TheaterHeaderSub {
+    color: #616161;
+    font-size: 12px;
+    font-weight: 400;
+}
