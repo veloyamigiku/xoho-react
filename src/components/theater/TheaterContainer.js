@@ -1,3 +1,4 @@
+import classes from './TheaterContainer.module.css';
 import TheaterItem from './TheaterItem';
 
 const TheaterContainer = function(props) {
@@ -13,7 +14,7 @@ const TheaterContainer = function(props) {
     });
   }
   return (
-    <div>{theaterItemList}</div>
+    <div className={classes.TheaterContainer}>{theaterItemList}</div>
   );
 }
 
