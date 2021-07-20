@@ -1,5 +1,4 @@
 div.TheaterContent {
-    margin: 10px;
     overflow: hidden;
     transition-property: height;
     transition-timing-function: ease;
