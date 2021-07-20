@@ -8,6 +8,20 @@ Enzyme.configure({
 });
 
 describe('TheaterHeaderコンポーネント', () => {
+  it('イベントのテスト', () => {
+    const data = theaterData[0].header;
+    const clickMock = jest.fn();
+    const wrapper = shallow(
+      <TheaterHeader
+        data={data}
+        click={clickMock} />);
+    
+    const theaterHeaderNode = wrapper.find('div.TheaterHeader');
+    expect(theaterHeaderNode).toHaveLength(1);
+    theaterHeaderNode.at(0).simulate('click');
+    expect(clickMock.mock.calls).toHaveLength(1);
+  });
+
   it('プロップスのテスト', () => {
     const data = theaterData[0].header;
     const wrapper = shallow(<TheaterHeader data={data} />);
