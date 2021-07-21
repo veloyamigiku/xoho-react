@@ -39,7 +39,7 @@ const TheaterContent = function(props, ref) {
     <div
       className={classes.TheaterContent}
       style={{
-        margin: isOpen ? '10px' : '0',
+        margin: isOpen ? '10px' : '0 10px 0 10px',
         height: isOpen ? openHeight : closeHeight
       }}
       ref={topDivRef}>

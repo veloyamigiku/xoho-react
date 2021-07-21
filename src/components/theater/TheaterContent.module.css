@@ -1,6 +1,6 @@
 div.TheaterContent {
     overflow: hidden;
-    transition-property: height;
+    transition-property: height margin;
     transition-timing-function: ease;
     transition-duration: .6s;
 }
