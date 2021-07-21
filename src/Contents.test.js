@@ -10,6 +10,7 @@ import NowPlaying from './components/now_playing/NowPlaying';
 import Top from './components/top/Top';
 import ComingSoon from './components/coming_soon/ComingSoon';
 import TheaterTop from './components/theater/TheaterTop';
+import MovieInfoTop from './components/movie_info/MovieInfoTop';
 
 Enzyme.configure({
   adapter: new EnzymeAdapter()
@@ -24,6 +25,21 @@ describe('Contentsコンポーネント', () => {
         data: {}
       };
     });
+  });
+
+  it('ルーティングのテスト_' + MovieInfoTop.name, async () => {
+    let wrapper;
+    await act(async () => {
+      wrapper = mount(
+        <MemoryRouter initialEntries={['/movie/movie_info']}>
+          <Contents />
+        </MemoryRouter>
+      );
+    });
+    wrapper.update();
+
+    const movieInfoTop = wrapper.find(MovieInfoTop);
+    expect(movieInfoTop).toHaveLength(1);
   });
 
   it('ルーティングのテスト_' + Top.name, async () => {
