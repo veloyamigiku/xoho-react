@@ -4,13 +4,12 @@ import Enzyme from 'enzyme';
 import EnzymeAdapter from 'enzyme-adapter-react-16';
 import { MemoryRouter } from 'react-router';
 import { mount } from 'enzyme';
-
 import Contents from './Contents';
 import NowPlaying from './components/now_playing/NowPlaying';
 import Top from './components/top/Top';
 import ComingSoon from './components/coming_soon/ComingSoon';
 import TheaterTop from './components/theater/TheaterTop';
-import MovieInfoTop from './components/movie_info/MovieInfoTop';
+import MovieTop from './components/movie/MovieTop';
 
 Enzyme.configure({
   adapter: new EnzymeAdapter()
@@ -27,19 +26,19 @@ describe('Contentsコンポーネント', () => {
     });
   });
 
-  it('ルーティングのテスト_' + MovieInfoTop.name, async () => {
+  it('ルーティングのテスト_' + MovieTop.name, async () => {
     let wrapper;
     await act(async () => {
       wrapper = mount(
-        <MemoryRouter initialEntries={['/movie/movie_info']}>
+        <MemoryRouter initialEntries={['/movie/1']}>
           <Contents />
         </MemoryRouter>
       );
     });
     wrapper.update();
 
-    const movieInfoTop = wrapper.find(MovieInfoTop);
-    expect(movieInfoTop).toHaveLength(1);
+    const movieTop = wrapper.find(MovieTop);
+    expect(movieTop).toHaveLength(1);
   });
 
   it('ルーティングのテスト_' + Top.name, async () => {
