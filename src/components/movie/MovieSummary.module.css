@@ -9,6 +9,11 @@ div.MovieSummaryLeft {
     flex-basis: 40%;
 }
 
+img.MovieSummaryLargeThumb {
+    width: 100%;
+    border: 1px solid #e0e0e0;
+}
+
 div.MovieSummaryTitle {
     margin-top: 10px;
     color: #fff;
@@ -36,6 +41,7 @@ a.MovieSummaryOptionLink {
 
 div.MovieSummaryRight {
     flex-basis: 60%;
+    padding-left: 30px;
 }
 
 div.MovieSummaryThumbGroup {

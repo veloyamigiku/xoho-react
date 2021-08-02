@@ -2,8 +2,18 @@ import classes from './MovieSummary.module.css';
 
 const MovieSummary = (props) => {
 
+  var largeThumb = null;
   var thumbList = [];
   if (props.data.thumb && props.data.thumb.length > 0) {
+    largeThumb = (
+      <div className={classes.MovieSummaryLargeThumbWrap}>
+        <img
+          className={classes.MovieSummaryLargeThumb}
+          alt="MovieSummaryLargeThumb"
+          src={props.data.thumb[0].url} />
+      </div>
+    );
+
     props.data.thumb.forEach(function (thumb, thumbIdx) {
       thumbList.push(
         <div
@@ -43,6 +53,7 @@ const MovieSummary = (props) => {
   return (
     <div className={classes.MovieSummary}>
       <div className={classes.MovieSummaryLeft}>
+        {largeThumb}
         <div className={classes.MovieSummaryTitle}>{props.data.name}</div>
         <div className={classes.MovieSummarySub}>{props.data.sub}</div>
         <div className={classes.MovieSummaryOption}>

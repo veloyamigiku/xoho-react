@@ -15,6 +15,12 @@ describe('MovieSummaryコンポーネント', () => {
       <MovieSummary data={data} />
     );
 
+    if (data.thumb && data.thumb.length > 0) {
+      const movieSummaryLargeThumbNode = wrapper.find('img.MovieSummaryLargeThumb');
+      expect(movieSummaryLargeThumbNode).toHaveLength(1);
+      expect(movieSummaryLargeThumbNode.at(0).props().src).toEqual(data.thumb[0].url);
+    }
+
     const movieSummaryTitleNode = wrapper.find('div.MovieSummaryTitle');
     expect(movieSummaryTitleNode).toHaveLength(1);
     expect(movieSummaryTitleNode.at(0).text()).toEqual(data.name);
