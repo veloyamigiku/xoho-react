@@ -1,3 +1,4 @@
+import classes from './MovieTop.module.css';
 import axios from 'axios';
 import { useEffect } from 'react';
 import { useState } from 'react';
@@ -17,7 +18,7 @@ const MovieTop = () => {
   }, []);
 
   return (
-    <div>
+    <div className={classes.MovieTop}>
       <MovieSummary data={movieData} />
     </div>
   );

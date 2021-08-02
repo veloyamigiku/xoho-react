@@ -1,0 +1,105 @@
+div.MovieSummary {
+    display: flex;
+    margin-top: 20px;
+    padding: 30px;
+    background-color: #1a1a1a;
+}
+
+div.MovieSummaryLeft {
+    flex-basis: 40%;
+}
+
+div.MovieSummaryTitle {
+    margin-top: 10px;
+    color: #fff;
+    font-size: 20px;
+    font-weight: 700;
+}
+
+div.MovieSummarySub {
+    margin-top: 5px;
+    color: #fff;
+    font-size: 15px;
+    font-weight: 400;
+}
+
+div.MovieSummaryOption {
+    margin-top: 10px;
+    color: #fff;
+    font-size: 12px;
+}
+
+a.MovieSummaryOptionLink {
+    color: #2195f3;
+    text-decoration: none;
+}
+
+div.MovieSummaryRight {
+    flex-basis: 60%;
+}
+
+div.MovieSummaryThumbGroup {
+    display: flex;
+}
+
+div.MovieSummaryThumbWrap {
+    flex-basis: 20%;
+    padding: 0 5px;
+}
+
+img.MovieSummaryThumb {
+    width: 100%;
+    border: 1px solid #e0e0e0;
+}
+
+div.MovieSummaryDesc {
+    margin-top: 40px;
+    color: #fff;
+}
+
+div.MovieSummaryHeader {
+    flex-basis: 25px;
+    margin-top: 3px;
+    padding: 3px 15px;
+    color: #fff;
+    background-color: gray;
+    font-size: 12px;
+    text-align: center;
+}
+
+div.MovieSummaryDirectorWrap,
+div.MovieSummaryPerformerWrap {
+    display: flex;
+    align-items: flex-start;
+    margin-top: 10px;
+}
+
+div.MovieSummaryDirector,
+div.MovieSummaryPerformer {
+    flex: 1;
+    padding-left: 5px;
+    padding-top: 3px;
+    color: #fff;
+    line-height: 1.5;
+}
+
+div.MovieSummaryRunningTimeMinute {
+    margin-top: 10px;
+    color: #fff;
+}
+
+div.MovieSummaryUrlWrap {
+    margin-top: 10px;
+}
+
+a.MovieSummaryUrl {
+    text-decoration: none;
+    color: #2196f3;
+    transition-property: opacity;
+    transition-timing-function: ease;
+    transition-duration: .3s;
+}
+
+a.MovieSummaryUrl:hover {
+    opacity: .6;
+}

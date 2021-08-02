@@ -1,3 +1,5 @@
+import classes from './MovieSummary.module.css';
+
 const MovieSummary = (props) => {
 
   var thumbList = [];
@@ -5,11 +7,12 @@ const MovieSummary = (props) => {
     props.data.thumb.forEach(function (thumb, thumbIdx) {
       thumbList.push(
         <div
-          className="MovieSummaryThumbWrap"
+          className={classes.MovieSummaryThumbWrap}
           key={'MovieSummaryThumb' + thumbIdx}>
           <img
-            className="MovieSummaryThumb"
-            src={thumb.url} />
+            className={classes.MovieSummaryThumb}
+            src={thumb.url}
+            alt="MovieSummaryThumb" />
         </div>
       );
     })
@@ -38,36 +41,37 @@ const MovieSummary = (props) => {
   }
 
   return (
-    <div>
-      <div className="MovieSummaryLeft">
-        <div className="MovieSummaryTitle">{props.data.name}</div>
-        <div className="MovieSummarySub">{props.data.sub}</div>
-        <div className="movieSummaryOption">
+    <div className={classes.MovieSummary}>
+      <div className={classes.MovieSummaryLeft}>
+        <div className={classes.MovieSummaryTitle}>{props.data.name}</div>
+        <div className={classes.MovieSummarySub}>{props.data.sub}</div>
+        <div className={classes.MovieSummaryOption}>
           上映する設備は劇場によって異なります。詳細は
           <a
-            className="MovieSummaryOptionLink"
+            className={classes.MovieSummaryOptionLink}
             href="/theater">各劇場のページ</a>
+          にてご確認下さい。
         </div>
       </div>
-      <div className="MovieSummaryRight">
-        <div className="MovieSummaryThumbGroup">
+      <div className={classes.MovieSummaryRight}>
+        <div className={classes.MovieSummaryThumbGroup}>
           {thumbList}
         </div>
-        <div className="MovieSummaryDesc">{props.data.description}</div>
-        <div className="MovieSummaryDirectorWrap">
-          <div className="MovieSummaryHeader">監督</div>
-          <div className="MovieSummaryDirector">{director}</div>
+        <div className={classes.MovieSummaryDesc}>{props.data.description}</div>
+        <div className={classes.MovieSummaryDirectorWrap}>
+          <div className={classes.MovieSummaryHeader}>監督</div>
+          <div className={classes.MovieSummaryDirector}>{director}</div>
         </div>
-        <div className="MovieSummaryPerformerWrap">
-          <div className="MovieSummaryHeader">出演</div>
-          <div className="MovieSummaryPerformer">声の出演：{performer}</div>
+        <div className={classes.MovieSummaryPerformerWrap}>
+          <div className={classes.MovieSummaryHeader}>出演</div>
+          <div className={classes.MovieSummaryPerformer}>声の出演：{performer}</div>
         </div>
-        <div className="MovieSummaryRunningTimeMinute">
+        <div className={classes.MovieSummaryRunningTimeMinute}>
           {'[' + props.data.name + '　上映時間：' + props.data.runningTimeMinute + '分 ]'}
         </div>
-        <div className="MovieSummaryUrlWrap">
+        <div className={classes.MovieSummaryUrlWrap}>
           <a
-            className="MovieSummaryUrl"
+            className={classes.MovieSummaryUrl}
             href="http://localhost:3000">{props.data.name + '：公式サイト'}</a>
         </div>
       </div>
