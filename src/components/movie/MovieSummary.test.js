@@ -9,6 +9,22 @@ Enzyme.configure({
 
 describe('MovieSummaryコンポーネント', () => {
 
+  it('イベントのテスト', () => {
+    const data = movieData;
+    const wrapper = shallow(
+      <MovieSummary data={data} />
+    );
+
+    const movieSummaryThumbWrapNodes = wrapper.find('div.MovieSummaryThumbWrap');
+    expect(movieSummaryThumbWrapNodes).toHaveLength(data.thumb.length);
+    const movieSummaryThumbWrapNode = movieSummaryThumbWrapNodes.at(data.thumb.length - 1);
+    movieSummaryThumbWrapNode.simulate('mouseover');
+
+    const movieSummaryLargeThumbNode = wrapper.find('img.MovieSummaryLargeThumb');
+    expect(movieSummaryLargeThumbNode).toHaveLength(1);
+    expect(movieSummaryLargeThumbNode.at(0).props().src).toEqual(data.thumb[data.thumb.length - 1].url);
+  });
+
   it('プロップスのテスト', () => {
     const data = movieData;
     const wrapper = shallow(

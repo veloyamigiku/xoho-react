@@ -1,6 +1,12 @@
+import { useState } from 'react';
 import classes from './MovieSummary.module.css';
 
 const MovieSummary = (props) => {
+  const [largeThumbUrl, setLargeThumbUrl] = useState(null);
+
+  const mouseOverThumb = (idx) => {
+    setLargeThumbUrl(props.data.thumb[idx].url);
+  };
 
   var largeThumb = null;
   var thumbList = [];
@@ -10,7 +16,7 @@ const MovieSummary = (props) => {
         <img
           className={classes.MovieSummaryLargeThumb}
           alt="MovieSummaryLargeThumb"
-          src={props.data.thumb[0].url} />
+          src={largeThumbUrl ? largeThumbUrl : props.data.thumb[0].url} />
       </div>
     );
 
@@ -18,7 +24,8 @@ const MovieSummary = (props) => {
       thumbList.push(
         <div
           className={classes.MovieSummaryThumbWrap}
-          key={'MovieSummaryThumb' + thumbIdx}>
+          key={'MovieSummaryThumb' + thumbIdx}
+          onMouseOver={() => mouseOverThumb(thumbIdx)}>
           <img
             className={classes.MovieSummaryThumb}
             src={thumb.url}
