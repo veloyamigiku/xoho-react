@@ -79,40 +79,6 @@ export const movieData = {
         sub: 'TOHOKU AREA'
       },
       prefectures: [
-        {
-          prefecture: {
-            name: '青森県',
-            sub: 'AOMORI'
-          },
-          theater: [
-            {
-              name: 'おいらせ下田',
-              sub: 'OIRASE SHIMODA',
-              area: 1,
-              prefecture: 1,
-              url: '',
-              type: [],
-              id: 1
-            }
-          ]
-        },
-        {
-          prefecture: {
-            name: '秋田県',
-            sub: 'AKITA'
-          },
-          theater: [
-            {
-              name: '秋田',
-              sub: 'AKITA',
-              area: 1,
-              prefecture: 2,
-              url: '',
-              type: [],
-              id: 2
-            }
-          ]
-        }
       ]
     },
     {
@@ -742,27 +708,7 @@ export const movieData = {
         name: '中国地方',
         sub: 'CHUGOKU AREA'
       },
-      prefectures: [
-        {
-          prefecture: {
-            name: '岡山県',
-            sub: 'OKAYAMA'
-          },
-          theater: [
-            {
-              name: '岡南',
-              sub: 'KONAN',
-              area: 5,
-              prefecture: 20,
-              url: '',
-              type: [
-                2
-              ],
-              id: 54
-            }
-          ]
-        }
-      ]
+      prefectures: []
     },
     {
       area: {

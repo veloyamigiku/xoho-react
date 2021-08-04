@@ -9,6 +9,7 @@ import { headingData } from './HeadingData';
 import Heading from '../common/Heading';
 import LargeButtonContainer from '../common/LargeButtonContainer';
 import { movieLargeButton } from './MovieLargeButtonData';
+import MovieTheater from './MovieTheater';
 
 Enzyme.configure({
   adapter: new EnzymeAdapter()
@@ -47,12 +48,16 @@ describe('MovieTopコンポーネント', () => {
 
     const headingNodes = wrapper.find(Heading);
     expect(headingNodes).toHaveLength(Object.keys(headingData).length);
-    const nhHeadingNode = headingNodes.at(0)
-    expect(nhHeadingNode.props().data).toEqual(headingData.NH)
-    const pbttHeadingNode = headingNodes.at(1)
-    expect(pbttHeadingNode.props().data).toEqual(headingData.PBTT)
-    const tlisHeadingNode = headingNodes.at(2)
-    expect(tlisHeadingNode.props().data).toEqual(headingData.TLIS)
+    const nhHeadingNode = headingNodes.at(0);
+    expect(nhHeadingNode.props().data).toEqual(headingData.NH);
+    const pbttHeadingNode = headingNodes.at(1);
+    expect(pbttHeadingNode.props().data).toEqual(headingData.PBTT);
+    const tlisHeadingNode = headingNodes.at(2);
+    expect(tlisHeadingNode.props().data).toEqual(headingData.TLIS);
+
+    const movieTheaterNode = wrapper.find(MovieTheater);
+    expect(movieTheaterNode).toHaveLength(1);
+    expect(movieTheaterNode.at(0).props().data).toEqual(data.theater);
 
     const largeButtonContainerNode = wrapper.find(LargeButtonContainer);
     expect(largeButtonContainerNode).toHaveLength(1);

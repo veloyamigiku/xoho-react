@@ -9,6 +9,7 @@ import { headingData } from './HeadingData';
 import MovieHeading from './MovieHeading';
 import { movieHeadingData } from './MovieHeadingData';
 import LargeButtonContainer from '../common/LargeButtonContainer';
+import MovieTheater from './MovieTheater';
 
 const MovieTop = () => {
 
@@ -35,6 +36,7 @@ const MovieTop = () => {
       <Heading data={headingData.NH} />
       <Heading data={headingData.PBTT} />
       <Heading data={headingData.TLIS} />
+      <MovieTheater data={movieData.theater} />
       <LargeButtonContainer data={movieLargeButtonData} />
     </div>
   );
