@@ -1,3 +1,5 @@
+import classes from './MovieTheaterTab.module.css';
+
 const MovieTheaterTab = (props) => {
   
   var movieTheaterTabItemList = [];
@@ -5,7 +7,7 @@ const MovieTheaterTab = (props) => {
     props.data.forEach(function (theaterByAreaPrefecture, theaterByAreaPrefectureIdx) {
       movieTheaterTabItemList.push(
         <div
-          className="MovieTheaterTabItem"
+          className={classes.MovieTheaterTabItem}
           key={'MovieTheaterTabItem' + theaterByAreaPrefectureIdx}>
           {theaterByAreaPrefecture.area.name}
         </div>
@@ -14,11 +16,11 @@ const MovieTheaterTab = (props) => {
   }
 
   return (
-    <div>
+    <div className={classes.MovieTheaterTab}>
       {movieTheaterTabItemList}
     </div>
   );
-  
+
 }
 
 export default MovieTheaterTab;
