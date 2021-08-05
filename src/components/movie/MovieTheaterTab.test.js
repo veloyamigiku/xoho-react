@@ -8,17 +8,39 @@ Enzyme.configure({
 });
 
 describe('MovieTheaterTabコンポーネント', () => {
+  it('イベントのテスト', () => {
+    const movieTheaterTabItemClass = 'MovieTheaterTabItem';
+    const movieTheaterTabItemActiveClass = 'MovieTheaterTabItemActive';
+    const data = movieData.theater;
+    const wrapper = shallow(
+      <MovieTheaterTab data={data} />
+    );
+
+    const movieTheaterTabItemNodes1 = wrapper.find('div.MovieTheaterTab div');
+    const movieTheaterTabItemNodes1First = movieTheaterTabItemNodes1.at(0);
+    const movieTheaterTabItemNodes1Last = movieTheaterTabItemNodes1.at(movieTheaterTabItemNodes1.length - 1);
+    movieTheaterTabItemNodes1Last.simulate('click');
+    const movieTheaterTabItemNodes2 = wrapper.find('div.MovieTheaterTab div');
+    const movieTheaterTabItemNodes2First = movieTheaterTabItemNodes2.at(0);
+    const movieTheaterTabItemNodes2Last = movieTheaterTabItemNodes2.at(movieTheaterTabItemNodes2.length - 1);
+
+    expect(movieTheaterTabItemNodes1First.props().className).toEqual(movieTheaterTabItemActiveClass);
+    expect(movieTheaterTabItemNodes1Last.props().className).toEqual(movieTheaterTabItemClass);
+    expect(movieTheaterTabItemNodes2First.props().className).toEqual(movieTheaterTabItemClass);
+    expect(movieTheaterTabItemNodes2Last.props().className).toEqual(movieTheaterTabItemActiveClass);
+  });
+
   it('プロップスのテスト', () => {
     const data = movieData.theater;
     const wrapper = shallow(
       <MovieTheaterTab data={data} />
     );
 
-    const movieTheaterTabItemNodes = wrapper.find('div.MovieTheaterTabItem');
+    const movieTheaterTabItemNodes = wrapper.find('div.MovieTheaterTab div');
     expect(movieTheaterTabItemNodes).toHaveLength(data.length);
     data.forEach(function (theaterByAreaPrefecture, theaterByAreaPrefectureIdx) {
       const movieTheaterTabItemNode = movieTheaterTabItemNodes.at(theaterByAreaPrefectureIdx);
       expect(movieTheaterTabItemNode.text()).toEqual(theaterByAreaPrefecture.area.name);
     });
-  })
+  });
 })
