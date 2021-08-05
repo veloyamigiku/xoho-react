@@ -9,6 +9,7 @@ div.MovieTheaterTab {
 }
 
 div.MovieTheaterTabItem {
+    position: relative;
     width: 100%;
     padding-top: 15px;
     padding-bottom: 20px;
@@ -19,6 +20,13 @@ div.MovieTheaterTabItem {
     cursor: pointer;
 }
 
-div.MovieTheaterTabItem:nth-of-type(n+2) {
+div.MovieTheaterTabItem:nth-of-type(n+2)::before {
+    position: absolute;
+    width: 1px;
+    left: 0;
+    top: 10px;
+    right: 0;
+    bottom: 10px;
+    content: '';
     border-left: 1px solid #fff;
 }

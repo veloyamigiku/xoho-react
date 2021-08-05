@@ -75,7 +75,7 @@ export const movieData = {
   theater: [
     {
       area: {
-        name: '東北地区',
+        name: '東北',
         sub: 'TOHOKU AREA'
       },
       prefectures: [
@@ -83,7 +83,7 @@ export const movieData = {
     },
     {
       area: {
-        name: '関東地区',
+        name: '関東',
         sub: 'KANTO AREA'
       },
       prefectures: [
@@ -442,7 +442,7 @@ export const movieData = {
     },
     {
       area: {
-        name: '中部地区',
+        name: '中部',
         sub: 'CHUBU AREA'
       },
       prefectures: [
@@ -585,7 +585,7 @@ export const movieData = {
     },
     {
       area: {
-        name: '関西地区',
+        name: '関西',
         sub: 'KANSAI AREA'
       },
       prefectures: [
@@ -705,14 +705,14 @@ export const movieData = {
     },
     {
       area: {
-        name: '中国地方',
+        name: '中国',
         sub: 'CHUGOKU AREA'
       },
       prefectures: []
     },
     {
       area: {
-        name: '四国地区',
+        name: '四国',
         sub: 'SHIKOKU AREA'
       },
       prefectures: [
@@ -737,7 +737,7 @@ export const movieData = {
     },
     {
       area: {
-        name: '九州地区',
+        name: '九州',
         sub: 'KYUSYU AREA'
       },
       prefectures: [
