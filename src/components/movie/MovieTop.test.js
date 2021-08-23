@@ -10,6 +10,7 @@ import Heading from '../common/Heading';
 import LargeButtonContainer from '../common/LargeButtonContainer';
 import { movieLargeButton } from './MovieLargeButtonData';
 import MovieTheater from './MovieTheater';
+import '../../fontawesome';
 
 Enzyme.configure({
   adapter: new EnzymeAdapter()
