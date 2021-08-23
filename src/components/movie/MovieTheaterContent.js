@@ -1,3 +1,4 @@
+import classes from './MovieTheaterContent.module.css';
 import MovieTheaterArea from './MovieTheaterArea';
 
 const MovieTheaterContent = (props) => {
@@ -13,7 +14,7 @@ const MovieTheaterContent = (props) => {
     });
   }
   return (
-    <div>
+    <div className={classes.MovieTheaterContent}>
       {movieTheaterAreaList}
     </div>
   );

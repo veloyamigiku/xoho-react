@@ -1,0 +1,35 @@
+div.MovieTheaterItem {
+    padding: 15px 20px;
+}
+
+div.MovieTheaterItem:nth-of-type(n+2) {
+    border-top: solid 1px #bdbdbd;
+}
+
+div.MovieTheaterItemPrefecture {
+    color: #616161;
+    font-weight: 700;
+}
+
+div.MovieTheaterItemGroup {
+    display: flex;
+    align-items: center;
+}
+
+div.MovieTheaterItemTitle {
+    padding: 15px 0;
+    font-weight: 700;
+    cursor: pointer;
+}
+
+div.MovieTheaterItemTitle:hover {
+    opacity: .6;
+}
+
+div.MovieTheaterItemTitle:nth-of-type(2) {
+    margin-top: 10px;
+}
+
+.MovieTheaterItemIcon {
+    margin-left: auto;
+}
