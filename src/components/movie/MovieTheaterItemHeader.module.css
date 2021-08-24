@@ -14,12 +14,12 @@ div.MovieTheaterItemHeaderPrefecture {
 div.MovieTheaterItemHeaderGroup {
     display: flex;
     align-items: center;
+    cursor: pointer;
 }
 
 div.MovieTheaterItemHeaderTitle {
     padding: 15px 0;
     font-weight: 700;
-    cursor: pointer;
 }
 
 div.MovieTheaterItemHeaderTitle:hover {
