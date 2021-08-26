@@ -1,0 +1,43 @@
+div.MovieTheaterScheduleDateGroup {
+    display: flex;
+    overflow: hidden;
+}
+
+div.MovieTheaterScheduleDate {
+    width: calc(100% / 7);
+    flex-shrink: 0;
+    background-color: #616161;
+    overflow: hidden;
+}
+
+div.MovieTheaterScheduleDate:nth-of-type(n+2) {
+    border-left: 1px solid #cacaca;
+}
+
+div.MovieTheaterScheduleDateTitle {
+    padding-top: 15px;
+    padding-bottom: 15px;
+    font-size: 18px;
+    font-weight: 700;
+    color: #fff;
+    text-align: center;
+}
+
+span.MovieTheaterScheduleDateTitleDay {
+    font-size: 22px;
+}
+
+div.MovieTheaterScheduleDateOptionWrap {
+    padding-left: 10px;
+    padding-right: 10px;
+    padding-bottom: 10px;
+}
+
+div.MovieTheaterScheduleDateOption {
+    padding-top: 10px;
+    font-size: 14px;
+    font-weight: 700;
+    color: #fff;
+    border-top: 1px solid rgba(255,255,255,.3);
+    text-align: center;
+}
