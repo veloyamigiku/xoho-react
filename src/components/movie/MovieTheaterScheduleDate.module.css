@@ -7,7 +7,14 @@ div.MovieTheaterScheduleDate {
     width: calc(100% / 7);
     flex-shrink: 0;
     background-color: #616161;
-    overflow: hidden;
+    cursor: pointer;
+}
+
+div.MovieTheaterScheduleDateActive {
+    width: calc(100% / 7);
+    flex-shrink: 0;
+    background-color: #d32f2f;
+    cursor: pointer;
 }
 
 div.MovieTheaterScheduleDate:nth-of-type(n+2) {
