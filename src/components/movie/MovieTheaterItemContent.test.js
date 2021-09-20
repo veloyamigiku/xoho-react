@@ -12,10 +12,13 @@ Enzyme.configure({
 
 describe('MovieTheaterItemContentコンポーネント', () => {
   it('プロップスのテスト', () => {
+    const data = {
+      date: movieTheaterScheduleDateData,
+      screen: movieTheaterScheduleScreenData
+    };
     const wrapper = shallow(
       <MovieTheaterItemContent
-        dateData={movieTheaterScheduleDateData}
-        screenData={movieTheaterScheduleScreenData} />
+        data={data} />
     );
 
     const movieTheaterScheduleDateNode = wrapper.find(MovieTheaterScheduleDate);

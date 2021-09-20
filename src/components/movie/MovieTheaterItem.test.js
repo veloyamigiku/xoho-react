@@ -60,8 +60,8 @@ describe('MovieTheaterItemコンポーネント', () => {
 
     const movieTheaterItemContentNode = wrapper.find(MovieTheaterItemContent);
     expect(movieTheaterItemContentNode).toHaveLength(1);
-    expect(movieTheaterItemContentNode.at(0).props().dateData).toEqual(movieTheaterScheduleDateData);
-    expect(movieTheaterItemContentNode.at(0).props().screenData).toEqual(movieTheaterScheduleScreenData);
+    expect(movieTheaterItemContentNode.at(0).props().data.date).toEqual(movieTheaterScheduleDateData);
+    expect(movieTheaterItemContentNode.at(0).props().data.screen).toEqual(movieTheaterScheduleScreenData);
   });
 
 });
