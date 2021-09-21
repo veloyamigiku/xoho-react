@@ -1,8 +1,6 @@
 import Enzyme, { shallow } from 'enzyme';
 import EnzymeAdapter from 'enzyme-adapter-react-16';
 import MovieTheaterItemContent from './MovieTheaterItemContent';
-import { movieTheaterScheduleDateData } from './MovieTheaterScheduleDateData';
-import { movieTheaterScheduleScreenData } from './MovieTheaterScheduleScreenData';
 import MovieTheaterScheduleDate from './MovieTheaterScheduleDate';
 import MovieTheaterScheduleScreen from './MovieTheaterScheduleScreen';
 
@@ -12,21 +10,16 @@ Enzyme.configure({
 
 describe('MovieTheaterItemContentコンポーネント', () => {
   it('プロップスのテスト', () => {
-    const data = {
-      date: movieTheaterScheduleDateData,
-      screen: movieTheaterScheduleScreenData
-    };
     const wrapper = shallow(
-      <MovieTheaterItemContent
-        data={data} />
+      <MovieTheaterItemContent />
     );
 
     const movieTheaterScheduleDateNode = wrapper.find(MovieTheaterScheduleDate);
     expect(movieTheaterScheduleDateNode).toHaveLength(1);
-    expect(movieTheaterScheduleDateNode.at(0).props().data).toEqual(movieTheaterScheduleDateData);
+    expect(movieTheaterScheduleDateNode.at(0).props().data).toEqual([]);
 
     const movieTheaterScheduleScreenNode = wrapper.find(MovieTheaterScheduleScreen);
     expect(movieTheaterScheduleScreenNode).toHaveLength(1);
-    expect(movieTheaterScheduleScreenNode.at(0).props().data).toEqual(movieTheaterScheduleScreenData);
+    expect(movieTheaterScheduleScreenNode.at(0).props().data).toEqual({});
   });
 });

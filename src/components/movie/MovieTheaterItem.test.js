@@ -7,8 +7,9 @@ import '../../fontawesome';
 import axios from 'axios';
 import { movieTheaterScheduleDateData } from './MovieTheaterScheduleDateData';
 import { movieTheaterScheduleScreenData } from './MovieTheaterScheduleScreenData';
+import MovieTheaterScheduleDate from './MovieTheaterScheduleDate';
 import { act } from '@testing-library/react';
-import MovieTheaterItemContent from './MovieTheaterItemContent';
+import MovieTheaterScheduleScreen from './MovieTheaterScheduleScreen';
 
 Enzyme.configure({
   adapter: new EnzymeAdapter()
@@ -44,7 +45,7 @@ describe('MovieTheaterItemコンポーネント', () => {
     expect(movieTheaterItemHeaderNode.at(0).props().data).toEqual(data);
   });
 
-  it('プロップスのテスト_子コンポーネントのイベント処理+映画劇場日付取得', async () => {
+  it('プロップスのテスト_子コンポーネントのイベント処理+子コンポーネントの映画劇場日付取得呼び出し', async () => {
     const data = movieData.theater[1].prefectures[0].theater[0];
     const wrapper = mount(
       <MovieTheaterItem data={data} />
@@ -58,10 +59,13 @@ describe('MovieTheaterItemコンポーネント', () => {
     });
     wrapper.update();
 
-    const movieTheaterItemContentNode = wrapper.find(MovieTheaterItemContent);
-    expect(movieTheaterItemContentNode).toHaveLength(1);
-    expect(movieTheaterItemContentNode.at(0).props().data.date).toEqual(movieTheaterScheduleDateData);
-    expect(movieTheaterItemContentNode.at(0).props().data.screen).toEqual(movieTheaterScheduleScreenData);
+    const movieTheaterScheduleDateNode = wrapper.find(MovieTheaterScheduleDate);
+    expect(movieTheaterScheduleDateNode).toHaveLength(1);
+    expect(movieTheaterScheduleDateNode.at(0).props().data).toEqual(movieTheaterScheduleDateData);
+
+    const movieTheaterScheduleScreenNode = wrapper.find(MovieTheaterScheduleScreen);
+    expect(movieTheaterScheduleScreenNode).toHaveLength(1);
+    expect(movieTheaterScheduleScreenNode.at(0).props().data).toEqual(movieTheaterScheduleScreenData);
   });
 
 });
