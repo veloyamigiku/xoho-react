@@ -1,5 +1,6 @@
 import { useState } from 'react';
 import classes from './MovieTheaterScheduleDate.module.css';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
 const MovieTheaterScheduleDate = (props) => {
 
@@ -31,9 +32,15 @@ const MovieTheaterScheduleDate = (props) => {
     });
   }
   return (
-    <div>
+    <div className={classes.MovieScheduleDateRoot}>
+      <div className={classes.MovieScheduleDatePrev}>
+        <FontAwesomeIcon icon={['fas', 'chevron-left']} />
+      </div>
       <div className={classes.MovieTheaterScheduleDateGroup}>
         {scheduleDateList}
+      </div>
+      <div className={classes.MovieScheduleDateNext}>
+        <FontAwesomeIcon icon={['fas', 'chevron-right']} />
       </div>
     </div>
   );

@@ -1,5 +1,5 @@
 import { library } from '@fortawesome/fontawesome-svg-core';
-import { faAdjust, faAirFreshener, faAllergies, faAmbulance, faAmericanSignLanguageInterpreting, faArrowsAlt, faBan, faBoxOpen, faChevronDown, faCompactDisc, faCompress, faCompressAlt, faCompressArrowsAlt, faCouch, faDolly, faExpandArrowsAlt, faFileVideo, faFilm, faHome, faMapSigns, faPeopleCarry, faRemoveFormat, faRoute, faSign, faSignInAlt, faSuitcase, faTape, faTrailer, faTruckLoading, faTruckMoving, faVideo, faYenSign } from '@fortawesome/free-solid-svg-icons';
+import { faAdjust, faAirFreshener, faAllergies, faAmbulance, faAmericanSignLanguageInterpreting, faArrowsAlt, faBan, faBoxOpen, faChevronDown, faChevronLeft, faChevronRight, faCompactDisc, faCompress, faCompressAlt, faCompressArrowsAlt, faCouch, faDolly, faExpandArrowsAlt, faFileVideo, faFilm, faHome, faMapSigns, faPeopleCarry, faRemoveFormat, faRoute, faSign, faSignInAlt, faSuitcase, faTape, faTrailer, faTruckLoading, faTruckMoving, faVideo, faYenSign } from '@fortawesome/free-solid-svg-icons';
 import { faDotCircle, faFileVideo as farFileVideo } from '@fortawesome/free-regular-svg-icons';
 
 
@@ -37,5 +37,7 @@ library.add(
     faAmbulance,
     faAmericanSignLanguageInterpreting,
     faChevronDown,
-    faDotCircle
+    faDotCircle,
+    faChevronLeft,
+    faChevronRight
 );
