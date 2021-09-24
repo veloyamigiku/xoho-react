@@ -51,23 +51,37 @@ div.MovieScheduleDateNext:hover {
 }
 
 div.MovieTheaterScheduleDateGroup {
-    display: flex;
+    overflow-x: hidden;
     margin: 0 30px;
-    overflow: hidden;
+}
+
+div.MovieTheaterScheduleDateGroupContent {
+    width: calc(100% * 2);
+    transition-property: margin-left;
+    transition-timing-function: ease;
+    transition-duration: .6s;
+}
+
+div.MovieTheaterScheduleDateGroupContent::after {
+    display: block;
+    content: '';
+    clear: both;
 }
 
 div.MovieTheaterScheduleDate {
-    width: calc(100% / 7);
-    flex-shrink: 0;
+    float: left;
+    width: calc(100% / 14);
     background-color: #616161;
     cursor: pointer;
+    box-sizing: border-box;
 }
 
 div.MovieTheaterScheduleDateActive {
-    width: calc(100% / 7);
-    flex-shrink: 0;
+    float: left;
+    width: calc(100% / 14);
     background-color: #d32f2f;
     cursor: pointer;
+    box-sizing: border-box;
 }
 
 div.MovieTheaterScheduleDate:nth-of-type(n+2) {

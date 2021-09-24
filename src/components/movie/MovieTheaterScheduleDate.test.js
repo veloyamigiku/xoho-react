@@ -17,13 +17,13 @@ describe('MovieTheaterScheduleDateコンポーネント', () => {
         onClick={onClickMock} />
     );
 
-    const movieTheaterScheduleDateNodes1 = wrapper.find("div.MovieTheaterScheduleDateGroup > div");
+    const movieTheaterScheduleDateNodes1 = wrapper.find("div.MovieTheaterScheduleDateGroup > div > div");
     expect(movieTheaterScheduleDateNodes1).toHaveLength(data.length);
     expect(movieTheaterScheduleDateNodes1.at(0).props().className).toEqual("MovieTheaterScheduleDateActive");
 
     movieTheaterScheduleDateNodes1.at(data.length - 1).simulate('click');
     expect(onClickMock.mock.calls).toHaveLength(1);
-    const movieTheaterScheduleDateNodes2 = wrapper.find("div.MovieTheaterScheduleDateGroup > div");
+    const movieTheaterScheduleDateNodes2 = wrapper.find("div.MovieTheaterScheduleDateGroup > div > div");
     expect(movieTheaterScheduleDateNodes2).toHaveLength(data.length);
     expect(movieTheaterScheduleDateNodes2.at(data.length - 1).props().className).toEqual("MovieTheaterScheduleDateActive");
   });

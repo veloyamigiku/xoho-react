@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useState, useRef } from 'react';
 import classes from './MovieTheaterScheduleDate.module.css';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
@@ -6,9 +6,21 @@ const MovieTheaterScheduleDate = (props) => {
 
   const [activeDateIdx, setActiveDateIdx] = useState(0);
 
+  const scheduleDateGroupContentRef = useRef();
+
   const onClickDate = (clickDateIdx) => {
     setActiveDateIdx(clickDateIdx);
     props.onClick();
+  }
+
+  const onClickPrev = () => {
+    console.log("prev.");
+    scheduleDateGroupContentRef.current.style.marginLeft = 0;
+  }
+
+  const onClickNext = () => {
+    console.log("next.");
+    scheduleDateGroupContentRef.current.style.marginLeft = -100 + "%";
   }
 
   var scheduleDateList = [];
@@ -33,13 +45,19 @@ const MovieTheaterScheduleDate = (props) => {
   }
   return (
     <div className={classes.MovieScheduleDateRoot}>
-      <div className={classes.MovieScheduleDatePrev}>
+      <div
+        className={classes.MovieScheduleDatePrev}
+        onClick={() => {onClickPrev()}}>
         <FontAwesomeIcon icon={['fas', 'chevron-left']} />
       </div>
       <div className={classes.MovieTheaterScheduleDateGroup}>
-        {scheduleDateList}
+        <div className={classes.MovieTheaterScheduleDateGroupContent} ref={scheduleDateGroupContentRef}>
+          {scheduleDateList}
+        </div>
       </div>
-      <div className={classes.MovieScheduleDateNext}>
+      <div
+        className={classes.MovieScheduleDateNext}
+        onClick={() => {onClickNext()}}>
         <FontAwesomeIcon icon={['fas', 'chevron-right']} />
       </div>
     </div>
