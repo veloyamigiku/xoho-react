@@ -31,7 +31,7 @@ const MovieTheaterScheduleScreen = (props) => {
                     }
                   </span>
                 </div>
-                <div className={movieScheduleScreenTerm.statusClass}>
+                <div className={classes[movieScheduleScreenTerm.statusClass]}>
                   <span className={classes.MovieScheduleScreenStatusIcon}>
                     <FontAwesomeIcon icon={movieScheduleScreenTerm.statusIcon} />
                   </span>

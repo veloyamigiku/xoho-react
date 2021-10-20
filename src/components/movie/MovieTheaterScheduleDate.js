@@ -10,7 +10,7 @@ const MovieTheaterScheduleDate = (props) => {
 
   const onClickDate = (clickDateIdx) => {
     setActiveDateIdx(clickDateIdx);
-    props.onClick();
+    props.onClick(clickDateIdx);
   }
 
   const onClickPrev = () => {

@@ -1,6 +1,6 @@
 import Enzyme, { shallow } from 'enzyme';
 import EnzymeAdapter from 'enzyme-adapter-react-16';
-import { movieTheaterScheduleScreenData } from './MovieTheaterScheduleScreenData';
+import { movieScheduleScreenDataPtn1 } from './MovieTheaterScheduleScreenData';
 import MovieTheaterScheduleScreen from './MovieTheaterScheduleScreen';
 
 Enzyme.configure({
@@ -9,7 +9,7 @@ Enzyme.configure({
 
 describe('MovieTheaterScheduleScreenコンポーネント', () => {
   it('プロップスのテスト', () => {
-    const data = movieTheaterScheduleScreenData;
+    const data = movieScheduleScreenDataPtn1;
     const wrapper = shallow(
       <MovieTheaterScheduleScreen data={data} />
     );

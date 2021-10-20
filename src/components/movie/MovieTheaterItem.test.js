@@ -6,7 +6,7 @@ import MovieTheaterItemHeader from './MovieTheaterItemHeader';
 import '../../fontawesome';
 import axios from 'axios';
 import { movieTheaterScheduleDateData } from './MovieTheaterScheduleDateData';
-import { movieTheaterScheduleScreenData } from './MovieTheaterScheduleScreenData';
+import { movieScheduleScreenDataPtn1, movieScheduleScreenDataPtn2 } from './MovieTheaterScheduleScreenData';
 import MovieTheaterScheduleDate from './MovieTheaterScheduleDate';
 import { act } from '@testing-library/react';
 import MovieTheaterScheduleScreen from './MovieTheaterScheduleScreen';
@@ -26,9 +26,13 @@ describe('MovieTheaterItemコンポーネント', () => {
           return {
             data: movieTheaterScheduleDateData
           };
-        case 'https://wonderful-ptolemy-a2705b.netlify.app/.netlify/functions/movie_schedule_screen?year=2021&month=8&day=22&title=竜とそばかすの姫':
+        case 'https://wonderful-ptolemy-a2705b.netlify.app/.netlify/functions/movie_schedule_screen?year=2021&month=8&day=24&title=竜とそばかすの姫':
           return {
-            data: movieTheaterScheduleScreenData
+            data: movieScheduleScreenDataPtn2
+          };
+        case 'https://wonderful-ptolemy-a2705b.netlify.app/.netlify/functions/movie_schedule_screen?year=2021&month=8&day=25&title=竜とそばかすの姫':
+          return {
+            data: movieScheduleScreenDataPtn1
           };
       }
     });
@@ -45,7 +49,12 @@ describe('MovieTheaterItemコンポーネント', () => {
     expect(movieTheaterItemHeaderNode.at(0).props().data).toEqual(data);
   });
 
-  it('プロップスのテスト_子コンポーネントのイベント処理+子コンポーネントの映画劇場日付取得呼び出し', async () => {
+  it('プロップスのテスト_' +
+    '子コンポーネントのイベント処理（ヘッダーのクリック） -> ' +
+    '子コンポーネントの映画劇場日付スクリーン取得呼び出し -> ' +
+    '子コンポーネントのイベント処理（日付のクリック） -> ' +
+    '子コンポーネントの映画劇場スクリーン取得呼び出し', async () => {
+    
     const data = movieData.theater[1].prefectures[0].theater[0];
     const wrapper = mount(
       <MovieTheaterItem data={data} />
@@ -65,7 +74,19 @@ describe('MovieTheaterItemコンポーネント', () => {
 
     const movieTheaterScheduleScreenNode = wrapper.find(MovieTheaterScheduleScreen);
     expect(movieTheaterScheduleScreenNode).toHaveLength(1);
-    expect(movieTheaterScheduleScreenNode.at(0).props().data).toEqual(movieTheaterScheduleScreenData);
+    expect(movieTheaterScheduleScreenNode.at(0).props().data).toEqual(movieScheduleScreenDataPtn2);
+
+    const divMovieTheaterScheduleDateNode = wrapper.find('div.MovieTheaterScheduleDate');
+    expect(divMovieTheaterScheduleDateNode.length).toBeGreaterThanOrEqual(1);
+    await act(async () => {
+      divMovieTheaterScheduleDateNode.at(0).simulate('click');
+    });
+    wrapper.update();
+
+    const movieTheaterScheduleScreenNode2 = wrapper.find(MovieTheaterScheduleScreen);
+    expect(movieTheaterScheduleScreenNode2).toHaveLength(1);
+    expect(movieTheaterScheduleScreenNode2.at(0).props().data).toEqual(movieScheduleScreenDataPtn1);
+
   });
 
 });

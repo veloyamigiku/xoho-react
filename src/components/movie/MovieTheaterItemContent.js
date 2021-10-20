@@ -28,7 +28,7 @@ const MovieTheaterItemContent = (props, ref) => {
         Promise
           .all([
             axios
-              .get('https://wonderful-ptolemy-a2705b.netlify.app/.netlify/functions/movie_schedule_screen?year=2021&month=8&day=22&title=竜とそばかすの姫'),
+              .get('https://wonderful-ptolemy-a2705b.netlify.app/.netlify/functions/movie_schedule_screen?year=2021&month=8&day=24&title=竜とそばかすの姫'),
             axios
               .get('https://wonderful-ptolemy-a2705b.netlify.app/.netlify/functions/movie_schedule_date?year=2021&month=8&day=24')
           ])
@@ -46,13 +46,21 @@ const MovieTheaterItemContent = (props, ref) => {
     }
   }));
 
+  const onClickDate = (clickIdx) => {
+    axios
+      .get('https://wonderful-ptolemy-a2705b.netlify.app/.netlify/functions/movie_schedule_screen?year=2021&month=8&day=25&title=竜とそばかすの姫')
+      .then(res => {
+        setScreenData(res.data);
+      });
+  }
+
   return (
     <div
       className={classes.MovieTheaterItemContent}
       ref={movieTheaterItemContentRef}>
       <MovieTheaterScheduleDate
         data={dateData}
-        onClick={() => console.log("click MovieTheaterScheduleDate.")} />
+        onClick={onClickDate} />
       <MovieTheaterScheduleScreen data={screenData} />
     </div>
   );
