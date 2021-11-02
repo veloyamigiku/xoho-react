@@ -12,8 +12,11 @@ describe('MovieTheaterTabコンポーネント', () => {
     const movieTheaterTabItemClass = 'MovieTheaterTabItem';
     const movieTheaterTabItemActiveClass = 'MovieTheaterTabItemActive';
     const data = movieData.theater;
+    const onClickTabMock = jest.fn();
     const wrapper = shallow(
-      <MovieTheaterTab data={data} />
+      <MovieTheaterTab
+        data={data}
+        onClickTab={onClickTabMock} />
     );
 
     const movieTheaterTabItemNodes1 = wrapper.find('div.MovieTheaterTab div');

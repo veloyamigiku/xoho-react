@@ -7,6 +7,7 @@ const MovieTheaterTab = (props) => {
 
   const clickTab = (tabIdx) => {
     setActiveTabIdx(tabIdx);
+    props.onClickTab(tabIdx);
   }
 
   var movieTheaterTabItemList = [];
