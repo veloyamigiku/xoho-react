@@ -1,4 +1,5 @@
 import { useState, useRef } from 'react';
+import { createRef } from 'react';
 import classes from './MovieTheaterScheduleDate.module.css';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
@@ -8,6 +9,10 @@ const MovieTheaterScheduleDate = (props) => {
 
   const scheduleDateGroupContentRef = useRef();
 
+  const scheduleDateGroupRef = useRef();
+
+  const scheduleDateRefList = useRef([]);
+
   const onClickDate = (clickDateIdx) => {
     setActiveDateIdx(clickDateIdx);
     props.onClick(clickDateIdx);
@@ -15,22 +20,39 @@ const MovieTheaterScheduleDate = (props) => {
 
   const onClickPrev = () => {
     console.log("prev.");
-    scheduleDateGroupContentRef.current.style.marginLeft = 0;
+    _calcSlideSize(scheduleDateRefList.current[0].current.clientWidth * 2 * 1);
   }
 
   const onClickNext = () => {
     console.log("next.");
-    scheduleDateGroupContentRef.current.style.marginLeft = -100 + "%";
+    _calcSlideSize(scheduleDateRefList.current[0].current.clientWidth * 2 * -1);
+  }
+
+  const _calcSlideSize = (slideSize) => {
+    const slideRangeMin = scheduleDateGroupRef.current.clientWidth - scheduleDateGroupContentRef.current.clientWidth;
+    const slideRangeMax = 0;
+    const curMarginLeft = scheduleDateGroupContentRef.current.style.marginLeft ? parseInt(scheduleDateGroupContentRef.current.style.marginLeft) : 0;
+    var marginLeft = null;
+    if ((curMarginLeft + slideSize) < slideRangeMin) {
+      marginLeft = slideRangeMin;
+    } else if ((curMarginLeft + slideSize) > slideRangeMax) {
+      marginLeft = slideRangeMax;
+    } else {
+      marginLeft = curMarginLeft + slideSize;
+    }
+    scheduleDateGroupContentRef.current.style.marginLeft = marginLeft + 'px';
   }
 
   var scheduleDateList = [];
   if (props.data && props.data.length > 0) {
     props.data.forEach(function (scheduleDate, scheduleDateIdx) {
+      scheduleDateRefList.current.push(createRef());
       scheduleDateList.push(
         <div
           className={activeDateIdx === scheduleDateIdx ? classes.MovieTheaterScheduleDateActive : classes.MovieTheaterScheduleDate}
           key={'MovieTheaterScheduleDate' + scheduleDateIdx}
-          onClick={() => onClickDate(scheduleDateIdx)}>
+          onClick={() => onClickDate(scheduleDateIdx)}
+          ref={scheduleDateRefList.current[scheduleDateIdx]}>
           <div className={classes.MovieTheaterScheduleDateTitle}>
             {scheduleDate.month + "/"}
             <span className={classes.MovieTheaterScheduleDateTitleDay}>{scheduleDate.day}</span>
@@ -50,8 +72,12 @@ const MovieTheaterScheduleDate = (props) => {
         onClick={() => {onClickPrev()}}>
         <FontAwesomeIcon icon={['fas', 'chevron-left']} />
       </div>
-      <div className={classes.MovieTheaterScheduleDateGroup}>
-        <div className={classes.MovieTheaterScheduleDateGroupContent} ref={scheduleDateGroupContentRef}>
+      <div
+        className={classes.MovieTheaterScheduleDateGroup}
+        ref={scheduleDateGroupRef}>
+        <div
+          className={classes.MovieTheaterScheduleDateGroupContent}
+          ref={scheduleDateGroupContentRef}>
           {scheduleDateList}
         </div>
       </div>
