@@ -1,3 +1,4 @@
+import classes from './MovieTheaterArea.module.css';
 import MovieTheaterPrefecture from './MovieTheaterPrefecture';
 
 const MovieTheaterArea = (props) => {
@@ -10,7 +11,16 @@ const MovieTheaterArea = (props) => {
           data={movieTheaterPrefecture} />
       );
     });
+  } else {
+    movieTheaterPrefectureList.push(
+      <div
+        className={classes.MovieTheaterNoPrefecture}
+        key={'MovieTheaterPrefecture0'}>
+        この地域では上映中の劇場はありません。
+      </div>
+    );
   }
+
   return (
     <div>
       {movieTheaterPrefectureList}

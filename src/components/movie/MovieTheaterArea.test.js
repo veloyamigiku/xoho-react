@@ -9,7 +9,8 @@ Enzyme.configure({
 });
 
 describe('MovieTheaterAreaコンポーネント', () => {
-  it('プロップスのテスト', () => {
+  
+  it('プロップスのテスト_都道府県のデータが1件以上', () => {
     const data = movieData.theater[1].prefectures;
     const wrapper = shallow(
       <MovieTheaterArea data={data} />
@@ -22,4 +23,17 @@ describe('MovieTheaterAreaコンポーネント', () => {
       expect(movieTheaterPrefectureNode.props().data).toEqual(movieTheaterPrefecture);
     });
   });
+  
+  it('プロップスのテスト_都道府県のデータが0件', () => {
+    const data = [];
+    const wrapper = shallow(
+      <MovieTheaterArea data={data} />
+    );
+
+    const movieTheaterPrefectureNodes = wrapper.find(MovieTheaterPrefecture);
+    expect(movieTheaterPrefectureNodes).toHaveLength(data.length);
+    const movieTheaterNoPrefectureNode = wrapper.find("div.MovieTheaterNoPrefecture");
+    expect(movieTheaterNoPrefectureNode).toHaveLength(1);
+  });
+
 });
