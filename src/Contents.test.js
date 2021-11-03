@@ -9,6 +9,7 @@ import NowPlaying from './components/now_playing/NowPlaying';
 import Top from './components/top/Top';
 import ComingSoon from './components/coming_soon/ComingSoon';
 import TheaterTop from './components/theater/TheaterTop';
+import ImaxTop from './components/theater/imax/ImaxTop';
 import MovieTop from './components/movie/MovieTop';
 
 Enzyme.configure({
@@ -99,6 +100,21 @@ describe('Contentsコンポーネント', () => {
 
     const theater = wrapper.find(TheaterTop);
     expect(theater).toHaveLength(1);
+  });
+
+  it('ルーティングのテスト_' + ImaxTop.name, async () => {
+    let wrapper;
+    await act(async () => {
+      wrapper = mount(
+        <MemoryRouter initialEntries={['/theater/imax']}>
+          <Contents />
+        </MemoryRouter>
+      )
+    });
+    wrapper.update();
+
+    const imax = wrapper.find(ImaxTop);
+    expect(imax).toHaveLength(1);
   });
   
 });
