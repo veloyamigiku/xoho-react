@@ -70,7 +70,6 @@ div.MovieTheaterScheduleDateGroupContent::after {
 
 div.MovieTheaterScheduleDate {
     float: left;
-    width: calc(100% / 14);
     background-color: #616161;
     cursor: pointer;
     box-sizing: border-box;
@@ -78,7 +77,6 @@ div.MovieTheaterScheduleDate {
 
 div.MovieTheaterScheduleDateActive {
     float: left;
-    width: calc(100% / 14);
     background-color: #d32f2f;
     cursor: pointer;
     box-sizing: border-box;
@@ -88,9 +86,11 @@ div.MovieTheaterScheduleDate:nth-of-type(n+2) {
     border-left: 1px solid #cacaca;
 }
 
+div.MovieTheaterScheduleDateTitleWrap {
+    padding: 15px 10px;
+}
+
 div.MovieTheaterScheduleDateTitle {
-    padding-top: 15px;
-    padding-bottom: 15px;
     font-size: 18px;
     font-weight: 700;
     color: #fff;
@@ -102,16 +102,28 @@ span.MovieTheaterScheduleDateTitleDay {
 }
 
 div.MovieTheaterScheduleDateOptionWrap {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 50px;
     padding-left: 10px;
     padding-right: 10px;
-    padding-bottom: 10px;
+}
+
+div.MovieTheaterScheduleDateOption::before {
+    position: absolute;
+    display: block;
+    top: 0;
+    left: 10px;
+    right: 10px;
+    content: '';
+    border-top: 1px solid rgba(255,255,255,.3);
 }
 
 div.MovieTheaterScheduleDateOption {
-    padding-top: 10px;
     font-size: 14px;
     font-weight: 700;
     color: #fff;
-    border-top: 1px solid rgba(255,255,255,.3);
-    text-align: center;
 }

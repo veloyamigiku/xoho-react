@@ -50,13 +50,16 @@ const MovieTheaterScheduleDate = (props) => {
       scheduleDateList.push(
         <div
           className={activeDateIdx === scheduleDateIdx ? classes.MovieTheaterScheduleDateActive : classes.MovieTheaterScheduleDate}
+          style={{width: 'calc(100% / ' + props.data.length + ')'}}
           key={'MovieTheaterScheduleDate' + scheduleDateIdx}
           onClick={() => onClickDate(scheduleDateIdx)}
           ref={scheduleDateRefList.current[scheduleDateIdx]}>
-          <div className={classes.MovieTheaterScheduleDateTitle}>
-            {scheduleDate.month + "/"}
-            <span className={classes.MovieTheaterScheduleDateTitleDay}>{scheduleDate.day}</span>
-            {"(" + scheduleDate.d + ")"}
+          <div className={classes.MovieTheaterScheduleDateTitleWrap}>
+            <div className={classes.MovieTheaterScheduleDateTitle}>
+              {scheduleDate.month + "/"}
+              <span className={classes.MovieTheaterScheduleDateTitleDay}>{scheduleDate.day}</span>
+              {"(" + scheduleDate.d + ")"}
+            </div>
           </div>
           <div className={classes.MovieTheaterScheduleDateOptionWrap}>
             <div className={classes.MovieTheaterScheduleDateOption}>{scheduleDate.option}</div>
