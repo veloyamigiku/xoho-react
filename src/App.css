@@ -23,7 +23,8 @@ body {
 
 #menu_wrapper {
   display: table-cell;
-  width: 210px;
+  width: 230px;
+  min-width: 230px;
   height: 100%;
   background-color: #292929;
 }
@@ -32,6 +33,14 @@ body {
   /* table-cellを持つノード内のはみ出たコンテンツのスタイル(overflow)は、要素を一つ挟んで設定する。 */
   height: 100%;
   overflow-y: auto;
+}
+
+#menu::-webkit-scrollbar {
+  width: 6px;
+}
+
+#menu::-webkit-scrollbar-thumb {
+  background-color: #a9a9a9;
 }
 
 #contents_wrapper {
@@ -44,6 +53,14 @@ body {
 #contents {
   height: 100%;
   overflow-y: auto;
+}
+
+#contents::-webkit-scrollbar {
+  width: 6px;
+}
+
+#contents::-webkit-scrollbar-thumb {
+  background-color: #a9a9a9;
 }
 
 #footer {
