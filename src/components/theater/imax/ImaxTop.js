@@ -1,5 +1,6 @@
 import axios from 'axios';
 import { useEffect, useState } from 'react';
+import ImaxContent from './ImaxContent';
 import ImaxHeader from './ImaxHeader';
 import classes from './ImaxTop.module.css';
 
@@ -17,7 +18,8 @@ const ImaxTop = function () {
 
   return (
     <div className={classes.ImaxBody}>
-      <ImaxHeader data={imaxTopData} /> 
+      <ImaxHeader data={imaxTopData} />
+      <ImaxContent data={imaxTopData} />
     </div>
   );
 

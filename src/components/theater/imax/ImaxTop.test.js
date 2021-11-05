@@ -2,6 +2,7 @@ import axios from 'axios';
 import Enzyme, { mount } from 'enzyme';
 import EnzymeAdapter from 'enzyme-adapter-react-16';
 import { act } from 'react-dom/test-utils';
+import ImaxContent from './ImaxContent';
 import ImaxHeader from './ImaxHeader';
 import ImaxTop from './ImaxTop';
 import { imaxTopData } from './ImaxTopData';
@@ -39,6 +40,10 @@ describe('ImaxTopコンポーネント', () => {
     expect(imaxHeaderNode).toHaveLength(1);
     expect(imaxHeaderNode.at(0).props().data).toEqual(imaxTopData);
 
+    const imaxContentNode = wrapper.find(ImaxContent);
+    expect(imaxContentNode).toHaveLength(1);
+    expect(imaxContentNode.at(0).props().data).toEqual(imaxTopData);
+    
   });
 
 });
