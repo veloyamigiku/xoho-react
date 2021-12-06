@@ -4,6 +4,7 @@ import EnzymeAdapter from 'enzyme-adapter-react-16';
 import { act } from 'react-dom/test-utils';
 import ImaxContent from './ImaxContent';
 import ImaxHeader from './ImaxHeader';
+import { imaxTheaterData } from './ImaxTheaterData';
 import ImaxTop from './ImaxTop';
 import { imaxTopData } from './ImaxTopData';
 
@@ -23,13 +24,21 @@ describe('ImaxTopコンポーネント', () => {
           return {
             data: imaxTopData
           };
+        case 'https://wonderful-ptolemy-a2705b.netlify.app/.netlify/functions/theater?type=6,1&front_type=react':
+          return {
+            data: imaxTheaterData
+          };
       }
     });
 
   });
 
   it('レンダリングのテスト', async () => {
-    
+    const headerData = imaxTopData;
+    const contentData = {
+      topData: imaxTopData,
+      theaterData: imaxTheaterData
+    };
     let wrapper;
     await act(async () => {
       wrapper = mount(<ImaxTop />);
@@ -38,11 +47,11 @@ describe('ImaxTopコンポーネント', () => {
 
     const imaxHeaderNode = wrapper.find(ImaxHeader);
     expect(imaxHeaderNode).toHaveLength(1);
-    expect(imaxHeaderNode.at(0).props().data).toEqual(imaxTopData);
+    expect(imaxHeaderNode.at(0).props().data).toEqual(headerData);
 
     const imaxContentNode = wrapper.find(ImaxContent);
     expect(imaxContentNode).toHaveLength(1);
-    expect(imaxContentNode.at(0).props().data).toEqual(imaxTopData);
+    expect(imaxContentNode.at(0).props().data).toEqual(contentData);
     
   });
 
