@@ -37,7 +37,10 @@ describe('ImaxTopコンポーネント', () => {
     const headerData = imaxTopData;
     const contentData = {
       topData: imaxTopData,
-      theaterData: imaxTheaterData
+      theaterData: {
+        6: imaxTheaterData[0],
+        1: imaxTheaterData[1]
+      }
     };
     let wrapper;
     await act(async () => {

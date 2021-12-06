@@ -29,7 +29,10 @@ const ImaxTop = function () {
       setImaxHeaderData(topData);
       setImaxContentData({
         topData: topData,
-        theaterData: theaterData
+        theaterData: {
+          6: theaterData[0],
+          1: theaterData[1]
+        }
       });
     });
   }, []);
