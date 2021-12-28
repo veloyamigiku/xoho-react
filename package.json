@@ -22,6 +22,7 @@
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
+    "test_runInBand": "react-scripts test --runInBand",
     "eject": "react-scripts eject"
   },
   "eslintConfig": {

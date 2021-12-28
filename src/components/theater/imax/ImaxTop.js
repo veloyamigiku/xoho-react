@@ -6,8 +6,8 @@ import classes from './ImaxTop.module.css';
 
 const ImaxTop = function () {
 
-  const [imaxHeaderData, setImaxHeaderData] = useState({});
-  const [imaxContentData, setImaxContentData] = useState({});
+  const [imaxHeaderData, setImaxHeaderData] = useState(undefined);
+  const [imaxContentData, setImaxContentData] = useState(undefined);
   
   useEffect(() => {
     Promise.all(
@@ -39,8 +39,8 @@ const ImaxTop = function () {
 
   return (
     <div className={classes.ImaxBody}>
-      <ImaxHeader data={imaxHeaderData} />
-      <ImaxContent data={imaxContentData} />
+      { imaxHeaderData && <ImaxHeader data={imaxHeaderData} /> } 
+      { imaxContentData && <ImaxContent data={imaxContentData} /> }
     </div>
   );
 

@@ -1,4 +1,4 @@
-export const getTheater = function (theaterData) {
+export const getTheaters = function (theaterData) {
   var theaterList = [];
   theaterData.prefecture.forEach(function (prefecture) {
     prefecture.theater.forEach(function (theater) {

@@ -1,33 +1,25 @@
-import { useEffect, useState } from "react";
 import ImaxTheater from "./ImaxTheater";
-import { getTheater } from "./ImaxUtils";
+import { getTheaters } from "./ImaxUtils";
 
 const ImaxContent = function (props) {
-
-  const [imaxLaserTheaterData, setImaxLaserTheaterData] = useState({
-    introImgUrl: undefined,
-    theaterList: []
-  });
-
-  const [imaxDigitalTheaterData, setImaxDigitalTheaterData] = useState({
-    introImgUrl: undefined,
-    theaterList: []
-  });
-
-  useEffect(() => {
-    if (props.data.topData) {
-      setImaxLaserTheaterData({
-        introImgUrl: props.data.topData.lasertIntroImgUrl,
-        theaterList: getTheater(props.data.theaterData[6])
-      });
+  
+  const imaxLaserTheaterData = {
+    imaxType: 6,
+    introImgUrl: props.data.topData.lasertIntroImgUrl,
+    theater: getTheaters(props.data.theaterData[6]),
+    theaterAbout: {
+      title: 'IMAX®レーザーとは'
     }
-    if (props.data.theaterData) {
-      setImaxDigitalTheaterData({
-        introImgUrl: props.data.topData.introImgUrl,
-        theaterList: getTheater(props.data.theaterData[1])
-      });
+  };
+
+  const imaxDigitalTheaterData = {
+    imaxType: 1,
+    introImgUrl: props.data.topData.introImgUrl,
+    theater: getTheaters(props.data.theaterData[1]),
+    theaterAbout: {
+      title: 'IMAX®とは'
     }
-  }, [props.data]);
+  }
 
   return (
     <div>
