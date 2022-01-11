@@ -1,6 +1,7 @@
 import ImaxTheater from "./ImaxTheater";
 import { getTheaters } from "./ImaxUtils";
 import classes from "./ImaxContent.module.css";
+import ImaxAbout from "./ImaxAbout";
 
 const ImaxContent = function (props) {
   
@@ -22,10 +23,16 @@ const ImaxContent = function (props) {
     }
   }
 
+  const imaxLaserAboutData = props.data.topData.laser;
+
+  const imaxDigitalAboutData = props.data.topData.imax;
+
   return (
     <div className={classes.ImaxContent}>
       <ImaxTheater data={imaxLaserTheaterData} />
       <ImaxTheater data={imaxDigitalTheaterData} />
+      <ImaxAbout data={imaxLaserAboutData} />
+      <ImaxAbout data={imaxDigitalAboutData} />
     </div>
   );
   

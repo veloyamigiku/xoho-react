@@ -1,5 +1,6 @@
 import Enzyme, { shallow } from 'enzyme';
 import EnzymeAdapter from 'enzyme-adapter-react-16';
+import ImaxAbout from './ImaxAbout';
 import ImaxContent from './ImaxContent';
 import ImaxTheater from './ImaxTheater';
 import { imaxTheaterData } from './ImaxTheaterData';
@@ -45,5 +46,12 @@ describe('ImaxContentコンポーネント', () => {
       }
     }
     expect(imaxDigitalTheaterNode.props().data).toEqual(imaxDigitalTheaterData);
+
+    const imaxAboutNodes = wrapper.find(ImaxAbout);
+    expect(imaxAboutNodes).toHaveLength(2);
+    const imaxLaserAboutNode = imaxAboutNodes.at(0);
+    expect(imaxLaserAboutNode.props().data).toEqual(imaxTopData.laser);
+    const imaxDigitalAboutNode = imaxAboutNodes.at(1);
+    expect(imaxDigitalAboutNode.props().data).toEqual(imaxTopData.imax);
   });
 });
