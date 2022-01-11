@@ -1,5 +1,6 @@
 import ImaxTheater from "./ImaxTheater";
 import { getTheaters } from "./ImaxUtils";
+import classes from "./ImaxContent.module.css";
 
 const ImaxContent = function (props) {
   
@@ -22,7 +23,7 @@ const ImaxContent = function (props) {
   }
 
   return (
-    <div>
+    <div className={classes.ImaxContent}>
       <ImaxTheater data={imaxLaserTheaterData} />
       <ImaxTheater data={imaxDigitalTheaterData} />
     </div>
