@@ -1,5 +1,6 @@
 import ImaxInfoText from './ImaxInfoText';
 import ImaxInfoImage from './ImaxInfoImage';
+import classes from './ImaxAbout.module.css';
 
 const ImaxAbout = function (props) {
 
@@ -21,30 +22,41 @@ const ImaxAbout = function (props) {
               key={'ImaxInfoImage' + infoIdx} />
           );
           break;
+        default:
+          break;
       }
     });
   }
+
   return (
-    <div>
-      <div>
+    <div className={classes.ImaxAbout}>
+      <div
+        className={classes.ImaxAboutTitle}
+        style={{
+          background: 'url(' + props.data.titleBgImgUrl + ') repeat center',
+        }}>
         <img
-          className="ImaxAboutTitleImg"
+          className='ImaxAboutTitleImg'
           src={props.data.titleImgUrl}
-          alt="ImaxAboutTitleImg" />
+          alt='ImaxAboutTitleImg' />
       </div>
       {props.data.imgUrl &&
       <div>
         <img
-          className="ImaxAboutImg"
+          className={classes.ImaxAboutImg}
           src={props.data.imgUrl}
-          alt="ImaxAboutImg" />
+          alt='ImaxAboutImg' />
       </div>
       }
-      <div>
+      <div
+        className={classes.ImaxAboutText}
+        style={{
+          background: 'url(' + props.data.textBgImgUrl + ') repeat center',
+        }}>
         <img
-          className="ImaxAboutTextImg"
+          className='ImaxAboutTextImg'
           src={props.data.textImgUrl}
-          alt="ImaxAboutTextImg" />
+          alt='ImaxAboutTextImg' />
       </div>
       <div>
         {imaxInfoList}
