@@ -1,9 +1,11 @@
+import classes from './ImaxInfoText.module.css';
+
 const ImaxInfoText = function (props) {
   
   return (
-    <div>
-      <div className="ImaxInfoTextHeader">{props.data.header}</div>
-      <div className="ImaxInfoTextBody">{props.data.body}</div>
+    <div className={classes.ImaxInfoText}>
+      <div className={classes.ImaxInfoTextHeader}>{props.data.header}</div>
+      <div className={classes.ImaxInfoTextBody}>{props.data.body}</div>
     </div>
   );
 
