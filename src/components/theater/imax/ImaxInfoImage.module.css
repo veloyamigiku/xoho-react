@@ -1,0 +1,25 @@
+div.ImaxInfoImageWrap {
+    border-bottom: 1px solid #404f66;
+}
+
+div.ImaxInfoImage {
+    max-width: 940px;
+    margin: 0 auto;
+    text-align: center;
+}
+
+div.ImaxInfoImageTitleWrap {
+    padding: 38px 0;
+}
+
+div.ImaxInfoImageSubTitleWrap {
+    padding-bottom: 64px;
+}
+
+div.ImaxInfoImageImgWrap {
+    padding-bottom: 57px;
+}
+
+div.ImaxInfoImageTextWrap {
+    padding-bottom: 78px;
+}

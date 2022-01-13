@@ -8,6 +8,7 @@ div.ImaxAboutTitle {
 }
 
 div.ImaxAboutText {
+    margin-bottom: 74px;
     padding: 75px 0;
     text-align: center;
 }
