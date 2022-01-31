@@ -1,7 +1,9 @@
-import ImaxTheater from "./ImaxTheater";
-import { getTheaters } from "./ImaxUtils";
-import classes from "./ImaxContent.module.css";
-import ImaxAbout from "./ImaxAbout";
+import ImaxTheater from './ImaxTheater';
+import { getTheaters } from './ImaxUtils';
+import classes from './ImaxContent.module.css';
+import ImaxAbout from './ImaxAbout';
+import ImaxMovie from './ImaxMovie';
+import { ranking } from '../../top/ranking/RankingData';
 
 const ImaxContent = function (props) {
   
@@ -31,6 +33,7 @@ const ImaxContent = function (props) {
     <div className={classes.ImaxContent}>
       <ImaxTheater data={imaxLaserTheaterData} />
       <ImaxTheater data={imaxDigitalTheaterData} />
+      <ImaxMovie data={ranking} />
       <ImaxAbout data={imaxLaserAboutData} />
       <ImaxAbout data={imaxDigitalAboutData} />
     </div>

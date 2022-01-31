@@ -6,6 +6,8 @@ import ImaxTheater from './ImaxTheater';
 import { imaxTheaterData } from './ImaxTheaterData';
 import { imaxTopData } from './ImaxTopData';
 import { getTheaters } from './ImaxUtils';
+import ImaxMovie from './ImaxMovie';
+import { ranking } from '../../top/ranking/RankingData';
 
 Enzyme.configure({
   adapter: new EnzymeAdapter()
@@ -46,6 +48,10 @@ describe('ImaxContentコンポーネント', () => {
       }
     }
     expect(imaxDigitalTheaterNode.props().data).toEqual(imaxDigitalTheaterData);
+
+    const imaxMovieNode = wrapper.find(ImaxMovie);
+    expect(imaxMovieNode).toHaveLength(1);
+    expect(imaxMovieNode.at(0).props().data).toEqual(ranking);
 
     const imaxAboutNodes = wrapper.find(ImaxAbout);
     expect(imaxAboutNodes).toHaveLength(2);
