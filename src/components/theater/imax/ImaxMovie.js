@@ -7,7 +7,7 @@ export const ImaxMovieConst = {
 
 const ImaxMovie = function (props) {
 
-  const [movieData, setMovieData] = useState(props.data);
+  const [movieData, setMovieData] = useState(props.data.movie);
   const [reset, setReset] = useState(0);
 
   const imaxMovieImgGroupRef = useRef();

@@ -25,6 +25,12 @@ const ImaxContent = function (props) {
     }
   }
 
+  const imaxMovieData = {
+    movieTitleImgUrl: props.data.topData.nowShowingImgUrl,
+    movieTitleBgImgUrl: props.data.topData.nowShowingBgImgUrl,
+    movie: ranking
+  }
+
   const imaxLaserAboutData = props.data.topData.laser;
 
   const imaxDigitalAboutData = props.data.topData.imax;
@@ -33,7 +39,7 @@ const ImaxContent = function (props) {
     <div className={classes.ImaxContent}>
       <ImaxTheater data={imaxLaserTheaterData} />
       <ImaxTheater data={imaxDigitalTheaterData} />
-      <ImaxMovie data={ranking} />
+      <ImaxMovie data={imaxMovieData} />
       <ImaxAbout data={imaxLaserAboutData} />
       <ImaxAbout data={imaxDigitalAboutData} />
     </div>

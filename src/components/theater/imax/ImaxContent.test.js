@@ -49,9 +49,14 @@ describe('ImaxContentコンポーネント', () => {
     }
     expect(imaxDigitalTheaterNode.props().data).toEqual(imaxDigitalTheaterData);
 
+    const imaxMovieData = {
+      movieTitleImgUrl: imaxTopData.nowShowingImgUrl,
+      movieTitleBgImgUrl: imaxTopData.nowShowingBgImgUrl,
+      movie: ranking
+    }
     const imaxMovieNode = wrapper.find(ImaxMovie);
     expect(imaxMovieNode).toHaveLength(1);
-    expect(imaxMovieNode.at(0).props().data).toEqual(ranking);
+    expect(imaxMovieNode.at(0).props().data).toEqual(imaxMovieData);
 
     const imaxAboutNodes = wrapper.find(ImaxAbout);
     expect(imaxAboutNodes).toHaveLength(2);
