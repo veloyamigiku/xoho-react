@@ -1,0 +1,20 @@
+div.ImaxMovie {
+    overflow: hidden;
+}
+
+div.ImaxMovieImgGroup::after {
+    display: block;
+    content: '';
+    clear: both;
+}
+
+div.ImaxMovieImgWrap {
+    float: left;
+    transition-property: margin-left;
+    transition-timing-function: ease;
+    transition-duration: .6s;
+}
+
+img.ImaxMovieImg {
+    width: 100%;
+}
