@@ -1,5 +1,7 @@
 div.ImaxMovie {
     overflow: hidden;
+    margin: 0 auto;
+    width: 60%;
 }
 
 div.ImaxMovieImgGroup::after {

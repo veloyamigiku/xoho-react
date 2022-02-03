@@ -2,7 +2,8 @@ import { createRef, useEffect, useRef, useState } from 'react';
 import classes from './ImaxMovie.module.css';
 
 export const ImaxMovieConst = {
-  movieItemCount: 5
+  movieItemCount: 5,
+  movieItemWidth: 500
 }
 
 const ImaxMovie = function (props) {
@@ -42,7 +43,7 @@ const ImaxMovie = function (props) {
         key={'ImaxMovieImgWrap' + imaxMovieIdx}
         className={classes.ImaxMovieImgWrap}
         style={{
-          width: 'calc(100% / ' + ImaxMovieConst.movieItemCount + ')'
+          width: ImaxMovieConst.movieItemWidth + 'px'
         }}
         ref={imaxMovieImgWrapRef.current[imaxMovieIdx]}>
         <img
@@ -55,17 +56,21 @@ const ImaxMovie = function (props) {
 
   return (
     <div
-      className={classes.ImaxMovie}>
-      <div
-        className={classes.ImaxMovieImgGroup}
-        style={{
-          marginRight: 'calc(-100% / ' + (ImaxMovieConst.movieItemCount - 2) + ')',
-          marginLeft: 'calc(-100% / ' + (ImaxMovieConst.movieItemCount - 2) + ')'
-        }}
-        ref={imaxMovieImgGroupRef}
-        onClick={() => slideMovie()}
-        key={reset}>
-        {imaxMovieImgWrapNodes}
+      style={{
+        background: 'url(' + props.data.movieTitleBgImgUrl + ') repeat left top'
+      }}>
+      <div className={classes.ImaxMovie}>
+        <div
+          className={classes.ImaxMovieImgGroup}
+          style={{
+            marginRight: 'calc((100% - ' + (ImaxMovieConst.movieItemWidth * ImaxMovieConst.movieItemCount) + 'px) / 2)',
+            marginLeft: 'calc((100% - ' + (ImaxMovieConst.movieItemWidth * ImaxMovieConst.movieItemCount) + 'px) / 2)'
+          }}
+          ref={imaxMovieImgGroupRef}
+          onClick={() => slideMovie()}
+          key={reset}>
+          {imaxMovieImgWrapNodes}
+        </div>
       </div>
     </div>
   );
