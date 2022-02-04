@@ -20,8 +20,8 @@ describe('ImaxMovieコンポーネント', () => {
     );
 
     const imaxMovieImgNodes = wrapper.find('img.ImaxMovieImg');
-    expect(imaxMovieImgNodes).toHaveLength(ImaxMovieConst.movieItemCount);
-    data.movie.slice(0, ImaxMovieConst.movieItemCount).forEach(function (imaxMovie, imaxMovieIdx) {
+    expect(imaxMovieImgNodes).toHaveLength(ImaxMovieConst.imaxMovieImgWrapCount);
+    data.movie.slice(0, ImaxMovieConst.imaxMovieImgWrapCount).forEach(function (imaxMovie, imaxMovieIdx) {
       const imaxMovieImgNode = imaxMovieImgNodes.at(imaxMovieIdx);
       expect(imaxMovieImgNode.props().src).toEqual(imaxMovie.imgUrl);
     });

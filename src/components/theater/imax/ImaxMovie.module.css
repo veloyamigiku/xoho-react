@@ -1,3 +1,7 @@
+div.ImaxMovieWrap {
+    position: relative;
+}
+
 div.ImaxMovie {
     overflow: hidden;
     margin: 0 auto;
@@ -10,6 +14,14 @@ div.ImaxMovieImgGroup::after {
     clear: both;
 }
 
+div.ImaxMovieLeft {
+    position: absolute;
+    top: 0;
+    background-color: aquamarine;
+    width: 30px;
+    height: 100%;
+}
+
 div.ImaxMovieImgWrap {
     float: left;
     transition-property: margin-left;
@@ -19,4 +31,12 @@ div.ImaxMovieImgWrap {
 
 img.ImaxMovieImg {
     width: 100%;
+}
+
+div.ImaxMovieRight {
+    position: absolute;
+    top: 0;
+    background-color: blueviolet;
+    width: 30px;
+    height: 100%;
 }

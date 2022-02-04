@@ -2,8 +2,10 @@ import { createRef, useEffect, useRef, useState } from 'react';
 import classes from './ImaxMovie.module.css';
 
 export const ImaxMovieConst = {
-  movieItemCount: 5,
-  movieItemWidth: 500
+  imaxMovieImgWrapCount: 5,
+  imaxMovieImgWrapWidth: 500,
+  imaxMovieWidthPer: 60,
+  imaxMovieLeftRightWidth: 30
 }
 
 const ImaxMovie = function (props) {
@@ -13,7 +15,7 @@ const ImaxMovie = function (props) {
 
   const imaxMovieImgGroupRef = useRef();
   const imaxMovieImgWrapRef = useRef([]);
-  movieData.slice(0, ImaxMovieConst.movieItemCount).forEach(function (_, imaxMovieIdx) {
+  movieData.slice(0, ImaxMovieConst.imaxMovieImgWrapCount).forEach(function (_, imaxMovieIdx) {
     imaxMovieImgWrapRef.current[imaxMovieIdx] = createRef();
   });
 
@@ -23,7 +25,7 @@ const ImaxMovie = function (props) {
 
   const slideMovie = function () {
     const imaxMovieImgGroupWidth = imaxMovieImgGroupRef.current.clientWidth;
-    const imaxMovieImgWidth = imaxMovieImgGroupWidth / ImaxMovieConst.movieItemCount;
+    const imaxMovieImgWidth = imaxMovieImgGroupWidth / ImaxMovieConst.imaxMovieImgWrapCount;
     imaxMovieImgGroupRef.current.childNodes[0].style.marginLeft = -imaxMovieImgWidth + 'px';
   }
 
@@ -37,13 +39,13 @@ const ImaxMovie = function (props) {
   }
 
   const imaxMovieImgWrapNodes = [];
-  movieData.slice(0, ImaxMovieConst.movieItemCount).forEach(function (imaxMovie, imaxMovieIdx) {
+  movieData.slice(0, ImaxMovieConst.imaxMovieImgWrapCount).forEach(function (imaxMovie, imaxMovieIdx) {
     imaxMovieImgWrapNodes.push(
       <div
         key={'ImaxMovieImgWrap' + imaxMovieIdx}
         className={classes.ImaxMovieImgWrap}
         style={{
-          width: ImaxMovieConst.movieItemWidth + 'px'
+          width: ImaxMovieConst.imaxMovieImgWrapWidth + 'px'
         }}
         ref={imaxMovieImgWrapRef.current[imaxMovieIdx]}>
         <img
@@ -59,18 +61,34 @@ const ImaxMovie = function (props) {
       style={{
         background: 'url(' + props.data.movieTitleBgImgUrl + ') repeat left top'
       }}>
-      <div className={classes.ImaxMovie}>
+      <div className={classes.ImaxMovieWrap}>
         <div
-          className={classes.ImaxMovieImgGroup}
+          className={classes.ImaxMovieLeft}
           style={{
-            marginRight: 'calc((100% - ' + (ImaxMovieConst.movieItemWidth * ImaxMovieConst.movieItemCount) + 'px) / 2)',
-            marginLeft: 'calc((100% - ' + (ImaxMovieConst.movieItemWidth * ImaxMovieConst.movieItemCount) + 'px) / 2)'
-          }}
-          ref={imaxMovieImgGroupRef}
-          onClick={() => slideMovie()}
-          key={reset}>
-          {imaxMovieImgWrapNodes}
+            left: 'calc((100% - ' + ImaxMovieConst.imaxMovieWidthPer + '%) / 2 - ' + ImaxMovieConst.imaxMovieLeftRightWidth + 'px)'
+          }} />
+        <div
+          className={classes.ImaxMovie}
+          style={{
+            width: ImaxMovieConst.imaxMovieWidthPer + '%'
+          }}>
+          <div
+            className={classes.ImaxMovieImgGroup}
+            style={{
+              marginRight: 'calc((100% - ' + (ImaxMovieConst.imaxMovieImgWrapWidth * ImaxMovieConst.imaxMovieImgWrapCount) + 'px) / 2)',
+              marginLeft: 'calc((100% - ' + (ImaxMovieConst.imaxMovieImgWrapWidth * ImaxMovieConst.imaxMovieImgWrapCount) + 'px) / 2)'
+            }}
+            ref={imaxMovieImgGroupRef}
+            onClick={() => slideMovie()}
+            key={reset}>    
+            {imaxMovieImgWrapNodes}
+          </div>
         </div>
+        <div
+          className={classes.ImaxMovieRight}
+          style={{
+            right: 'calc((100% - ' + ImaxMovieConst.imaxMovieWidthPer + '%) / 2 - ' + ImaxMovieConst.imaxMovieLeftRightWidth + 'px)'
+          }} />
       </div>
     </div>
   );
